@@ -26,14 +26,14 @@ public class Enemy : MonoBehaviour
 
         SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
 
-        
-
         AudioSource.clip = ScreamClip;
     }
 
     public void Update()
     {
-        if(!AudioSource.isPlaying && isDying)
+        Debug.Log(AudioSource.isPlaying);
+
+        if (!AudioSource.isPlaying && isDying)
         {
             Die();
         }
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     public void SetTarget(Transform target)
@@ -55,13 +55,11 @@ public class Enemy : MonoBehaviour
 
     public void BeginDeath() {
         isDying = true;
+
         Scream();
-
-
-        //gameObject.SetActive(false);
     }
 
-    public void Scream()
+    private void Scream()
     {
         AudioSource.Play();
     }

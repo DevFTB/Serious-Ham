@@ -32,7 +32,6 @@ public class ProximityExploder : MonoBehaviour
         float dist = Vector3.Distance(Target.position, transform.position);
         if (Triggered)
         {
-            Debug.Log("Exploding");
             if (dist < CancelDistance)
             {
                 ExplodeTimer += Time.deltaTime;
@@ -66,14 +65,18 @@ public class ProximityExploder : MonoBehaviour
 
     void DoExplosion()
     {
-        Debug.Log("Boom");
         float dist = Vector3.Distance(Target.position, transform.position);
 
         if (dist <= Radius)
         {
             Target.GetComponent<Health>().TakeDamage(Damage);
         }
-        GetComponent<ParticleSystem>().Play();
+
+        ParticleSystem Ps = GetComponent<ParticleSystem>();
+        if (Ps)
+        {
+            Ps.Play();
+        }
 
         OnExplode.Invoke();
     }
