@@ -6,26 +6,28 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform Target;
     private Vector3 Offset;
-    private Vector3 OriginalRotation;
 
     public float Smoothing;
 
     void Start()
     {
         Offset = transform.position - Target.position;
-        OriginalRotation = transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        Vector3 Position = Vector3.Lerp(Target.position + Offset, transform.position, Smoothing * Time.deltaTime);
+        transform.position = Target.position + Offset;
 
-        Vector3 lookPos = Target.position - transform.position;
-        lookPos.y = 0;
-        Quaternion rotation = Quaternion.LookRotation(lookPos, Vector3.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Smoothing);
+        //Vector3 Cross = Vector3.Cross(Vector3.up, Target.right);
 
-        transform.position = Position;
+        //Quaternion rotation = Quaternion.FromToRotation(transform.forward, Cross * -1);
+
+        //transform.position = Target.transform.position + Offset;
+
+        //transform.rotation = rotation;
     }
+
+
+
 }
