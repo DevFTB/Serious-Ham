@@ -11,7 +11,7 @@ public class Explode : MonoBehaviour
     public float AOE;
     public float TriggerDistance;
     public float StopDistance;
-    public Transform Player;
+    public GameObject Player;
     private bool triggered;
 
     // Start is called before the first frame update
@@ -24,10 +24,9 @@ public class Explode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(Player.position, transform.position);
+        float dist = Vector3.Distance(Player.transform.position, transform.position);
         if (triggered)
         {
-            Debug.Log("Exploding");
             if (dist < StopDistance)
             {
                 ExplodeTimer += Time.deltaTime;
@@ -61,8 +60,7 @@ public class Explode : MonoBehaviour
 
     void DoExplosion()
     {
-        Debug.Log("Boom");
-        float dist = Vector3.Distance(Player.position, transform.position);
+        float dist = Vector3.Distance(Player.transform.position, transform.position);
 
         if (dist <= AOE)
         {

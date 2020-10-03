@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     public float OffsetMagnitude;
     public float OffsetAngle;
     private Vector3 OriginalRotation;
+    public Vector3 RotationalOffset;
 
     public float Smoothing;
     public float FallOverMargin;
@@ -34,6 +35,6 @@ public class CameraFollow : MonoBehaviour
 
         var lookPos = Target.position - transform.position;
 
-        transform.rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.LookRotation(lookPos) * Quaternion.Euler(RotationalOffset);
     }
 }

@@ -10,12 +10,13 @@ public class Movement : MonoBehaviour
     public float BrakingAcceleration;
     public float MaximumSpeed;
 
-    public float SlamAcceleration;
-    private bool isSlamming;
+    private bool IsClamped;
+    public float AirMovementDampeningFactor;
 
     public float Gravity;
     public float JumpSpeed;
     public float TurnSpeed;
+
 
     private CharacterController cc;
     private Vector3 Velocity; 
@@ -23,7 +24,6 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isSlamming = false;
 
         Velocity = new Vector3();
         cc = GetComponent<CharacterController>();
@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             Velocity.z += Acceleration * Time.deltaTime;
+
         }
         else
         {
@@ -47,12 +48,14 @@ public class Movement : MonoBehaviour
 
         Velocity.z -= Mathf.Sign(Velocity.z) * Friction * Time.deltaTime;
 
+        if (IsClamped)
+        {
+            Velocity.z = Mathf.Clamp(Velocity.z, -MaximumSpeed, MaximumSpeed);
 
-        Velocity.z = Mathf.Clamp(Velocity.z, -MaximumSpeed, MaximumSpeed);
+        }
 
         if (cc.isGrounded)
         {
-            if (isSlamming) isSlamming = false;
             if (Input.GetKey(KeyCode.Space))
             {
                 Jump();
@@ -60,14 +63,9 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (IsClamped)
             {
-                Slam();
-            }
-
-            if (isSlamming)
-            {
-                Velocity.y -= SlamAcceleration * Time.deltaTime;
+                Velocity.z *= AirMovementDampeningFactor;
             }
             Velocity.y -= Gravity * Time.deltaTime;
         }
@@ -77,18 +75,43 @@ public class Movement : MonoBehaviour
 
         transform.Rotate(new Vector3(0, horizontal * TurnSpeed * Time.deltaTime, 0));
 
-        
-
         cc.Move(transform.rotation * Velocity * Time.deltaTime);
+
+
+
     }
 
-    private void Slam()
+    void LateUpdate()
     {
-        isSlamming = true;
+        IsClamped = true;
+    }
+
+    public Vector3 GetMovementDirection()
+    {
+        return Velocity.normalized;
+    }
+
+
+    public void AddVelocity(Vector3 AddedVelocity, bool clamped = true)
+    {
+        Velocity += AddedVelocity;
+        IsClamped = clamped;
+        
+    }
+
+    public void AddRelativeVelocity(Vector3 AddedVelocity, bool clamped = true)
+    {
+        Velocity += transform.rotation * AddedVelocity;
+        IsClamped = clamped;
     }
 
     private void Jump()
     {
         Velocity.y += JumpSpeed;
+    }
+
+    public bool IsGrounded()
+    {
+        return cc.isGrounded;
     }
 }
