@@ -134,6 +134,9 @@ GameObject:
   - component: {fileID: 177739580}
   - component: {fileID: 177739579}
   - component: {fileID: 177739578}
+  - component: {fileID: 177739581}
+  - component: {fileID: 177739582}
+  - component: {fileID: 177739583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -153,11 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d67ac99959756458cc6b390b169aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Acceleration: 4
-  Friction: 2
+  Acceleration: 5
+  Friction: 1
   BrakingAcceleration: 3
-  MaximumSpeed: 50
-  SlamAcceleration: 500
+  MaximumSpeed: 15
+  AirMovementDampeningFactor: 0.2
   Gravity: 100
   JumpSpeed: 100
   TurnSpeed: 90
@@ -194,6 +197,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177739581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177739577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0184f4225dd0e614eb087fc229e1dfdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 1
+  HPRegen: 0
+  RegenInterval: 0
+  RegenDelay: 0
+--- !u!114 &177739582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177739577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0e515f09d4cc6479024de20c0d61bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 15
+  Movement: {fileID: 177739578}
+  Duration: 1
+  DashSpeed: 10
+  Key: 304
+--- !u!114 &177739583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177739577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749fe993d7c8d4744acec1f6ff4b6b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 3
+  Movement: {fileID: 177739578}
+  SlamSpeed: 25
+  Key: 306
 --- !u!1 &183855280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,7 +5100,7 @@ MonoBehaviour:
   AOE: 3
   TriggerDistance: 2
   StopDistance: 3
-  Player: {fileID: 177739580}
+  Player: {fileID: 177739577}
 --- !u!195 &183855286
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5059,11 +5111,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 20
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -5185,7 +5237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183855280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 1, z: 20}
+  m_LocalPosition: {x: 20, y: 2, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5478,6 +5530,7 @@ MonoBehaviour:
   Target: {fileID: 177739580}
   OffsetMagnitude: 20
   OffsetAngle: 24
+  RotationalOffset: {x: 0, y: 0, z: 0}
   Smoothing: 1
   FallOverMargin: 0
 --- !u!1 &2121107399
@@ -5550,7 +5603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121107399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
