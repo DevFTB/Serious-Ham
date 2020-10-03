@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 FallOverAmount = forward;
         if(forward.magnitude > FallOverMargin)
         {
-            Vector3 Pos = Target.transform.position + (Vector3.Project(Offset,forward) + Vector3.Project(Offset, Vector3.up)).normalized * OffSetMagnitude;
+            Vector3 Pos = Target.transform.position + (Vector3.Project(Offset, forward) + Vector3.Project(Offset, Vector3.up)).normalized * OffSetMagnitude;
             transform.position = Vector3.Lerp(transform.position, Pos, Smoothing);
         }
 

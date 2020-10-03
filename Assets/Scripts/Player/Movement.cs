@@ -42,13 +42,13 @@ public class Movement : MonoBehaviour
             {
                 Velocity.z -= BrakingAcceleration * Time.deltaTime;
             }
-
-            Velocity.z -= Mathf.Sign(Velocity.z) * Friction * Time.deltaTime;
-
             
         }
 
-        Velocity.z = Mathf.Clamp(Velocity.z, 0, MaximumSpeed);
+        Velocity.z -= Mathf.Sign(Velocity.z) * Friction * Time.deltaTime;
+
+
+        Velocity.z = Mathf.Clamp(Velocity.z, -MaximumSpeed, MaximumSpeed);
 
         if (cc.isGrounded)
         {
