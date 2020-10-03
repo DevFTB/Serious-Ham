@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Follow : MonoBehaviour
 {
-    public Transform target;
+    public Transform Target;
     private NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,6 @@ public class Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.destination = target.position;
+        agent.destination = Target.position;
     }
 }

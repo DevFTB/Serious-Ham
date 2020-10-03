@@ -2,36 +2,41 @@
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Explode : MonoBehaviour
+public class ProximityExploder : MonoBehaviour
 {
     private float ExplodeTimer;
-    public float ExplodeTime;
-    public int Damage;
-    public float AOE;
-    public float TriggerDistance;
-    public float StopDistance;
-    public Transform Player;
-    private bool triggered;
+    public float ExplodeGracePeriod;
 
+    public int Damage;
+    public float Radius;
+    
+    public float TriggerDistance;
+    public float CancelDistance;
+
+    public Transform Target;
+    private bool Triggered;
+
+    public UnityEvent OnExplode;
     // Start is called before the first frame update
     void Start()
     {
-        triggered = false;
+        Triggered = false;
         ExplodeTimer = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(Player.position, transform.position);
-        if (triggered)
+        float dist = Vector3.Distance(Target.position, transform.position);
+        if (Triggered)
         {
             Debug.Log("Exploding");
-            if (dist < StopDistance)
+            if (dist < CancelDistance)
             {
                 ExplodeTimer += Time.deltaTime;
-                if (ExplodeTimer >= ExplodeTime)
+                if (ExplodeTimer >= ExplodeGracePeriod)
                 {
                     DoExplosion();
                     StopExplosion();
@@ -50,25 +55,27 @@ public class Explode : MonoBehaviour
 
     void TriggerExplosion()
     {
-        triggered = true;
+        Triggered = true;
     }
 
     void StopExplosion()
     {
-        triggered = false;
+        Triggered = false;
         ExplodeTimer = 0.0f;
     }
 
     void DoExplosion()
     {
         Debug.Log("Boom");
-        float dist = Vector3.Distance(Player.position, transform.position);
+        float dist = Vector3.Distance(Target.position, transform.position);
 
-        if (dist <= AOE)
+        if (dist <= Radius)
         {
-            Player.GetComponent<Health>().TakeDamage(Damage);
+            Target.GetComponent<Health>().TakeDamage(Damage);
         }
         GetComponent<ParticleSystem>().Play();
+
+        OnExplode.Invoke();
     }
 }
 
