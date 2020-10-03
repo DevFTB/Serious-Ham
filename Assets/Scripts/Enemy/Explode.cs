@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Explode : MonoBehaviour
 {
     private float ExplodeTimer;
     public float ExplodeTime;
-    public float Damage;
+    public int Damage;
     public float AOE;
     public float TriggerDistance;
     public float StopDistance;
-    public Transform player;
+    public Transform Player;
     private bool triggered;
 
     // Start is called before the first frame update
@@ -23,9 +24,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var dist = Vector3.Distance(player.position, transform.position);
+        float dist = Vector3.Distance(Player.position, transform.position);
         if (triggered)
         {
+            Debug.Log("Exploding");
             if (dist < StopDistance)
             {
                 ExplodeTimer += Time.deltaTime;
@@ -59,6 +61,14 @@ public class Enemy : MonoBehaviour
 
     void DoExplosion()
     {
+        Debug.Log("Boom");
+        float dist = Vector3.Distance(Player.position, transform.position);
 
+        if (dist <= AOE)
+        {
+            Player.GetComponent<Health>().TakeDamage(Damage);
+        }
+        GetComponent<ParticleSystem>().Play();
     }
 }
+
