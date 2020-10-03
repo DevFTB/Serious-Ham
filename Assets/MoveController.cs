@@ -29,17 +29,7 @@ public class MoveController : MonoBehaviour
             rb.AddRelativeTorque(Vector3.right * ForwardAcceleration * vertical, ForceMode.Acceleration);
         }
 
-        Vector3 predictedUp = Quaternion.AngleAxis(
-           rb.angularVelocity.magnitude * Mathf.Rad2Deg * Stability,
-           rb.angularVelocity
-       ) * transform.up;
-
-        Vector3 torqueVector = Vector3.Cross(predictedUp, Vector3.up);
-        // Uncomment the next line to stabilize on only 1 axis.
-        torqueVector = Vector3.Project(torqueVector, transform.forward);
-        rb.AddTorque(torqueVector);
-
-        //rb.AddRelativeTorque(Vector3.up * SidewaysTorque * horizontal, ForceMode.Acceleration);
+        rb.AddRelativeTorque(Vector3.up * SidewaysTorque * horizontal, ForceMode.Acceleration);
 
         //float PercentageFallenOver = transform.eulerAngles.z / 90;
 

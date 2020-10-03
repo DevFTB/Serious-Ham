@@ -19,13 +19,19 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 Position = Vector3.Lerp(Target.position + Offset, transform.position, Smoothing * Time.deltaTime);
 
-        Vector3 lookPos = Target.position - transform.position;
-        lookPos.y = 0;
-        Quaternion rotation = Quaternion.LookRotation(lookPos, Vector3.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Smoothing);
+        Vector3 forward = Vector3.Cross(Vector3.up, Target.right);
 
-        transform.position = Position;
+        // Quaternion rotation = Quaternion.FromToRotation(transform.forward, Cross * -1);
+        // Vector3 FallOverAmount = Vector3.Cross(Vector3.up, transform.right);
+        //     if (FallOverAmount.magnitude < 0.40)
+        //     {
+        //         rb.AddForce(Vector3.up * CorrectionFactor, ForceMode.VelocityChange);
+        //     }
+        transform.position = Target.transform.position + (Vector3.Project(Offset,forward) + Vector3.Project(Offset, Vector3.up));
+
+        var lookPos = Target.position - transform.position;
+
+        transform.rotation = Quaternion.LookRotation(lookPos);
     }
 }
