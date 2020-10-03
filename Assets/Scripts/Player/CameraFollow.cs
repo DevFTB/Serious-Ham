@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform Target;
-    private Vector3 Offset;
-    private float OffSetMagnitude;
+    public float OffsetMagnitude;
+    public float OffsetAngle;
     private Vector3 OriginalRotation;
     public Vector3 RotationalOffset;
 
@@ -15,8 +15,6 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        Offset = transform.position - Target.position;
-        OffSetMagnitude = Offset.magnitude;
         OriginalRotation = transform.rotation.eulerAngles;
     }
 
@@ -29,7 +27,8 @@ public class CameraFollow : MonoBehaviour
         Vector3 FallOverAmount = forward;
         if(forward.magnitude > FallOverMargin)
         {
-            Vector3 Pos = Target.transform.position + (Vector3.Project(Offset, forward) + Vector3.Project(Offset, Vector3.up)).normalized * OffSetMagnitude;
+            float OffsetRad = Mathf.Deg2Rad * OffsetAngle;
+            Vector3 Pos = Target.transform.position + (forward * OffsetMagnitude * Mathf.Cos(OffsetRad)) + (OffsetAngle * Vector3.up * Mathf.Sin(OffsetRad));
             transform.position = Vector3.Lerp(transform.position, Pos, Smoothing);
         }
 
