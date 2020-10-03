@@ -535,7 +535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 828070990}
-  Smoothing: 15
+  Smoothing: 0.1
+  FallOverMargin: 0.3
 --- !u!1 &1345016899
 GameObject:
   m_ObjectHideFlags: 0
