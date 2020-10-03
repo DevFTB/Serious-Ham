@@ -508,9 +508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d0777d6af532c4d8283eca6a462976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 177739580}
-  Smoothing: 10
---- !u!1 &1932895938
+  Target: {fileID: 828070990}
+  Smoothing: 0.1
+  FallOverMargin: 0.3
+--- !u!1 &1345016899
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
