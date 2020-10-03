@@ -26,10 +26,9 @@ public class MoveController : MonoBehaviour
 
         if (OnGround)
         {
-            rb.AddRelativeTorque(Vector3.right * ForwardAcceleration * vertical, ForceMode.Acceleration);
+            rb.MovePosition(Vector3.forward * Time.deltaTime * vertical * ForwardAcceleration);
         }
 
-        rb.AddRelativeTorque(Vector3.up * SidewaysTorque * horizontal, ForceMode.Acceleration);
 
         //float PercentageFallenOver = transform.eulerAngles.z / 90;
 
@@ -39,16 +38,14 @@ public class MoveController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
+        if (collision.gameObject.CompareTag("Ground")){
             OnGround = true;
         }
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
+        if (collision.gameObject.CompareTag("Ground")){
             OnGround = false;
         }
     }
