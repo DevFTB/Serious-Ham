@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3621807344412905290}
   - component: {fileID: 3621807344412905283}
   - component: {fileID: 2258274090404480487}
+  - component: {fileID: 7816243630244278274}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Slammable
@@ -158,9 +159,9 @@ MonoBehaviour:
   DeathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: BeginDeath
+      - m_Target: {fileID: 7816243630244278274}
+        m_TargetAssemblyTypeName: StreakUpdater, Assembly-CSharp
+        m_MethodName: IncrementStreak
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -266,6 +267,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7816243630244278274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621807344412905282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d4d2cfb9e267c4aa10187a2aff2a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4218372725986388730
 GameObject:
   m_ObjectHideFlags: 0

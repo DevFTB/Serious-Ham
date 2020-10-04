@@ -4792,21 +4792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbb437078ccdb4f953aff63f2ef758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnExplode:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5569920579216042059}
-        m_TargetAssemblyTypeName: ExploderEnemy, Assembly-CSharp
-        m_MethodName: BeginDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   Damage: 100
   Radius: 10
   DamageTargets: []
@@ -4847,6 +4832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  AggroRange: 50
 --- !u!114 &8831151003688525797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4881,6 +4867,10 @@ PrefabInstance:
       value: ExploderEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5569920579216042059}
@@ -4891,6 +4881,30 @@ PrefabInstance:
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ExploderEnemy, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: StreakUpdater, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7166657693419592349}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IncrementStreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905290, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_IsTrigger
@@ -4963,3 +4977,14 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 2258274090404480487, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
   m_PrefabInstance: {fileID: 1084792572880546463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7166657693419592349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7816243630244278274, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+  m_PrefabInstance: {fileID: 1084792572880546463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417692102912583133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d4d2cfb9e267c4aa10187a2aff2a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
