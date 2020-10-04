@@ -66,7 +66,7 @@ public class Exploder
             if (AudioSource)
             {
                 AudioSource.PlayOneShot(ExplosionSound);
-                Debug.Log("BOOM TIME");
+                // Debug.Log("BOOM TIME");
 
             }
             else

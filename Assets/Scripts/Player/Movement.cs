@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        IsClamped = true;
         Velocity = new Vector3();
         cc = GetComponent<CharacterController>();
     }
@@ -67,8 +67,9 @@ public class Movement : MonoBehaviour
             {
                 Velocity.z *= AirMovementDampeningFactor;
             }
-            Velocity.y -= Gravity * Time.deltaTime;
         }
+
+        Velocity.y -= Gravity * Time.deltaTime;
 
 
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -81,9 +82,14 @@ public class Movement : MonoBehaviour
 
     }
 
-    void LateUpdate()
+    public void Clamp()
     {
         IsClamped = true;
+    }
+
+    public void UnClamp()
+    {
+        IsClamped = false;
     }
 
     public Vector3 GetMovementDirection()
@@ -91,6 +97,10 @@ public class Movement : MonoBehaviour
         return Velocity.normalized;
     }
 
+    public Vector3 GetVelocity()
+    {
+        return Velocity;
+    }
 
     public void AddVelocity(Vector3 AddedVelocity, bool clamped = true)
     {
@@ -105,7 +115,7 @@ public class Movement : MonoBehaviour
         IsClamped = clamped;
     }
 
-    private void Jump()
+    public void Jump()
     {
         Velocity.y += JumpSpeed;
     }
