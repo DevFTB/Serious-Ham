@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class Enemy : MonoBehaviour
     private ProximityExploder Pe;
     private AudioSource AudioSource;
     private Health Health;
+    private GameObject Player;
 
+    public UnityEvent EnemyDeathEvent;
     private bool isDying;
 
     public void Start()
@@ -23,8 +26,10 @@ public class Enemy : MonoBehaviour
 
         Pe = GetComponent<ProximityExploder>();
         AudioSource = GetComponent<AudioSource>();
+        Player = GameObject.FindGameObjectWithTag("Player");
 
-        SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
+        SetTarget(Player.transform);
+        EnemyDeathEvent.AddListener(Player.GetComponent<PlayerController>().Kill);
 
         
 
@@ -41,6 +46,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        EnemyDeathEvent.Invoke();
         gameObject.SetActive(false);
     }
 
@@ -64,4 +70,5 @@ public class Enemy : MonoBehaviour
     {
         AudioSource.Play();
     }
+
 }

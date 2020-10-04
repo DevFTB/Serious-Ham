@@ -10,6 +10,7 @@ public class Slam : Ability
     public float SlamSpeed;
     public float SlamForce;
     public float SlamRadius;
+    public int SlamDamage;
     public float UpwardsModifier;
     public float MinSlamHeight;
     public float VelocityFactor;
@@ -60,6 +61,7 @@ public class Slam : Ability
             if (CollisionObject.gameObject.CompareTag("Slammable"))
             {
                 CollisionObject.gameObject.GetComponent<Rigidbody>().AddExplosionForce(SlamForce * -Movement.GetVelocity().y * VelocityFactor, transform.position, SlamRadius, UpwardsModifier, ForceMode.Impulse);
+                CollisionObject.gameObject.GetComponent<Health>().TakeDamage(SlamDamage);
             }
         }
     }

@@ -67,8 +67,9 @@ public class Movement : MonoBehaviour
             {
                 Velocity.z *= AirMovementDampeningFactor;
             }
-            Velocity.y -= Gravity * Time.deltaTime;
         }
+
+        Velocity.y -= Gravity * Time.deltaTime;
 
 
         float horizontal = Input.GetAxisRaw("Horizontal");

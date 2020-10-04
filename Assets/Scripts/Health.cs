@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public int MaxHP;
-    private int CurrentHP;
+    public int CurrentHP { private set; get; }
 
     public int HPRegen;
-    private bool IsHealing;
+    public bool IsHealing { private set; get; }
     
     public int RegenInterval;
     private float HealTimer;
@@ -31,6 +31,10 @@ public class Health : MonoBehaviour
 
     // Update is called once per frame
     public void Update()
+    {
+        RegenerationTick();
+    }
+    public void RegenerationTick()
     {
         if (RecentlyDamaged)
         {
@@ -76,32 +80,31 @@ public class Health : MonoBehaviour
             EndHealing();
         }
 
-       
     }
 
-    void Die()
+    public void Die()
     {
         DeathEvent.Invoke();
     }
 
-    void EndHealing()
+    public virtual void EndHealing()
     {
         IsHealing = false;
         HealTimer = 0.0f;
     }
-    void BeginHeal()
+    public virtual void BeginHeal()
     {
         IsHealing = true;
         HealTimer = 0.0f;
     }
 
-    void HealingStep()
+    public virtual void HealingStep()
     {
         CurrentHP = Mathf.Clamp(CurrentHP + HPRegen, 0, MaxHP);
         HealTimer = 0.0f;
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         CurrentHP -= amount;
         DamageTimer = 0.0f;
