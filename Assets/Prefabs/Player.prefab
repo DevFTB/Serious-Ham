@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 5
-  Friction: 1
+  Friction: 3
   BrakingAcceleration: 3
   MaximumSpeed: 50
   AirMovementDampeningFactor: 0.6

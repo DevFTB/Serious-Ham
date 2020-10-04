@@ -52,7 +52,7 @@ public class Exploder
             float dist = Vector3.Distance(Target.transform.position, ExploderTransform.position);
             if (dist <= Radius)
             {
-                Debug.Log("boom");
+
                 Target.GetComponent<Health>().TakeDamage(Damage);
             }
 

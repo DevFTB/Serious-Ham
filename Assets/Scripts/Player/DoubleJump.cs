@@ -9,6 +9,8 @@ public class DoubleJump : Ability
     private bool DidDoubleJump;
     public override bool GetAvailable()
     {
+        Debug.Log(Movement.IsGrounded());
+
         return (!Movement.IsGrounded() && base.GetAvailable() && !DidDoubleJump);
     }
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class DoubleJump : Ability
     // Update is called once per frame
     void Update()
     {
+
         TickCooldown();
         if (Input.GetKeyDown(Key) && GetAvailable())
         {
@@ -33,6 +36,7 @@ public class DoubleJump : Ability
 
     private void DoDoubleJump()
     {
+        base.UseAbility();
         DidDoubleJump = true;
         Movement.Jump();
 
