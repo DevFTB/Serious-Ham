@@ -20,7 +20,7 @@ public class DoubleJump : Ability
     // Update is called once per frame
     void Update()
     {
-        base.TickCooldown();
+        TickCooldown();
         if (Input.GetKeyDown(Key) && GetAvailable())
         {
             DoDoubleJump();
@@ -36,5 +36,7 @@ public class DoubleJump : Ability
         base.UseAbility();
         DidDoubleJump = true;
         Movement.Jump();
+
+        UseAbility();
     }
 }

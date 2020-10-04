@@ -61,7 +61,4 @@ public class Dash : Ability
         IsDashing = true;
         DashTimer = 0.0f;
     }
-
-
-
 }
