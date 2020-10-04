@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Velocity.y);
         // Debug.Log(FindSurfaceSlope());
         if (Input.GetKey(KeyCode.W))
         {
@@ -56,10 +57,11 @@ public class Movement : MonoBehaviour
             Velocity.z -= SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope());
             if (Input.GetKey(KeyCode.Space))
             {
+                Velocity.y = 0;
                 Jump();
             }
         }
-
+                
         Velocity.z -= Mathf.Sign(Velocity.z) * Friction * Time.deltaTime;
 
         if (IsClamped)
