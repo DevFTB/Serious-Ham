@@ -11,7 +11,10 @@ public class Enemy : MonoBehaviour
     private Transform Target;
 
     private Follow Follow;
-    private ProximityExploder Pe;
+    
+    private TriggerFuseExploder TFE;
+    private ProximityTrigger Trigger;
+
     private AudioSource AudioSource;
     private Health Health;
     private GameObject Player;
@@ -24,21 +27,21 @@ public class Enemy : MonoBehaviour
         Health = GetComponent<Health>();
         Follow = GetComponent<Follow>();
 
-        Pe = GetComponent<ProximityExploder>();
+        TFE = GetComponent<TriggerFuseExploder>();
+        Trigger = GetComponent<ProximityTrigger>();
+
         AudioSource = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player");
 
         SetTarget(Player.transform);
         EnemyDeathEvent.AddListener(Player.GetComponent<PlayerController>().Kill);
 
-        
-
         AudioSource.clip = ScreamClip;
     }
 
     public void Update()
     {
-        if(!AudioSource.isPlaying && isDying)
+        if (!AudioSource.isPlaying && isDying)
         {
             Die();
         }
@@ -55,20 +58,22 @@ public class Enemy : MonoBehaviour
         Target = target;
 
         Follow.Target = Target;
-        Pe.Target = Target;
+        Trigger.Target = Target;
+        TFE.SetDamageTarget(Target.gameObject);
     }
 
     public void BeginDeath() {
+        // Debug.Log("DEaTh");
         isDying = true;
+
+        TFE.enabled = false;
+
         Scream();
-
-
-        //gameObject.SetActive(false);
     }
 
-    public void Scream()
+    private void Scream()
     {
-        AudioSource.Play();
+        AudioSource.PlayOneShot(ScreamClip);
     }
 
 }
