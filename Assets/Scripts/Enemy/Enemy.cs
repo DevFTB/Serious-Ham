@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
 
     public void SetTarget(Transform target)
     {
-        Debug.Log(target);
         Target = target;
 
         Follow.Target = Target;

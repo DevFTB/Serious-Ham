@@ -45,20 +45,21 @@ public class Dash : Ability
 
     private void DoDash()
     {
-        Movement.AddVelocity(Movement.GetMovementDirection() * DashSpeed * Time.deltaTime, false);
+        Movement.AddVelocity(new Vector3(0,0,1)  * DashSpeed * Time.deltaTime, false);
     }
 
     private void EndDash()
     {
+        Movement.Clamp();
         IsDashing = false;
         DashTimer = 0.0f;
+        base.UseAbility();
     }
 
     private void StartDash()
     {
         IsDashing = true;
         DashTimer = 0.0f;
-        base.UseAbility();
     }
 
 

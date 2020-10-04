@@ -67,6 +67,8 @@ public class Explode : MonoBehaviour
             Player.GetComponent<Health>().TakeDamage(Damage);
         }
         GetComponent<ParticleSystem>().Play();
+
+        GetComponent<Enemy>().BeginDeath();
     }
 }
 

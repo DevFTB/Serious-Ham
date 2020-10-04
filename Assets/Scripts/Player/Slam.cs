@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class Slam : Ability
 {
     public Movement Movement;
     private bool IsSlamming;
     public float SlamSpeed;
+    public float SlamForce;
+    public float SlamRadius;
+    public float UpwardsModifier;
+    public float MinSlamHeight;
+    public float VelocityFactor;
     public KeyCode Key;
 
     // Start is called before the first frame update
@@ -22,15 +28,19 @@ public class Slam : Ability
         base.TickCooldown();
         if (Input.GetKeyDown(Key) && GetAvailable())
         {
-            StartSlam();
+            if (!Movement.IsGrounded()) 
+            { 
+                StartSlam(); 
+            }
+            
         }
         if (IsSlamming)
         {
             DoSlam();
-        }
-        if (Movement.IsGrounded())
-        {
-            EndSlam();
+            if (Movement.IsGrounded())
+            {
+                EndSlam();
+            }
         }
     }
 
@@ -41,12 +51,21 @@ public class Slam : Ability
 
     private void EndSlam()
     {
+        Movement.Clamp();
         IsSlamming = false;
+        base.UseAbility();
+        Collider[] InRadius = Physics.OverlapSphere(transform.position, SlamRadius);
+        foreach (var CollisionObject in InRadius)
+        {
+            if (CollisionObject.gameObject.CompareTag("Slammable"))
+            {
+                CollisionObject.gameObject.GetComponent<Rigidbody>().AddExplosionForce(SlamForce * -Movement.GetVelocity().y * VelocityFactor, transform.position, SlamRadius, UpwardsModifier, ForceMode.Impulse);
+            }
+        }
     }
 
     private void StartSlam()
     {
         IsSlamming = true;
-        base.UseAbility();
     }
 }
