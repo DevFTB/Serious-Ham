@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Slammable
   layers:
   - Default
   - TransparentFX

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class EnemyHealthDisplay : MonoBehaviour
 {
-    private int Streak = 0;
-
+    public Health Health;
+    public Text Text;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,17 +16,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-
-    public void Die()
-    {
-
-    }
-
-    public void Kill()
-    {
-        Streak += 1;
+        Text.text = Health.CurrentHP.ToString();
     }
 }

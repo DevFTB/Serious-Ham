@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,30 +12,37 @@ public class Enemy : MonoBehaviour
     private Transform Target;
 
     private Follow Follow;
-    private ProximityExploder Pe;
+    
+    private TriggerFuseExploder TFE;
+    private ProximityTrigger Trigger;
+
     private AudioSource AudioSource;
     private Health Health;
+    private GameObject Player;
 
-    private bool isDying;
+    public UnityEvent EnemyDeathEvent;
+    private bool IsDying;
 
     public void Start()
     {
         Health = GetComponent<Health>();
         Follow = GetComponent<Follow>();
 
-        Pe = GetComponent<ProximityExploder>();
+        TFE = GetComponent<TriggerFuseExploder>();
+        Trigger = GetComponent<ProximityTrigger>();
+
         AudioSource = GetComponent<AudioSource>();
+        Player = GameObject.FindGameObjectWithTag("Player");
 
-        SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
-
-        
+        SetTarget(Player.transform);
+        EnemyDeathEvent.AddListener(Player.GetComponent<PlayerController>().Kill);
 
         AudioSource.clip = ScreamClip;
     }
 
     public void Update()
     {
-        if(!AudioSource.isPlaying && isDying)
+        if (!AudioSource.isPlaying && IsDying)
         {
             Die();
         }
@@ -41,28 +50,31 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        EnemyDeathEvent.Invoke();
         gameObject.SetActive(false);
     }
 
     public void SetTarget(Transform target)
     {
-        Debug.Log(target);
         Target = target;
 
         Follow.Target = Target;
-        Pe.Target = Target;
+        Trigger.Target = Target;
+        TFE.SetDamageTarget(Target.gameObject);
     }
 
     public void BeginDeath() {
-        isDying = true;
+        IsDying = true;
+
+        Follow.enabled = false;
+        TFE.enabled = false;
+
         Scream();
-
-
-        //gameObject.SetActive(false);
     }
 
-    public void Scream()
+    private void Scream()
     {
-        AudioSource.Play();
+        AudioSource.PlayClipAtPoint(ScreamClip, transform.position);
     }
+
 }
