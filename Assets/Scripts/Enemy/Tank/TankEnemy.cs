@@ -11,13 +11,17 @@ public class TankEnemy : Enemy
     public int ShellDamage;
     public float ShellRadius;
     public float Gravity;
-    void Start()
+    private void Start()
     {
         base.Start();
 
         Follow = GetComponent<Follow>();
         SetTarget(Player.transform);
 
+    }
+
+    private void Update() {
+        base.CheckDeath();
     }
 
     public void SetTarget(Transform target)
