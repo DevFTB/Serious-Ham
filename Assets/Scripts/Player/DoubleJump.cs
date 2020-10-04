@@ -33,6 +33,7 @@ public class DoubleJump : Ability
 
     private void DoDoubleJump()
     {
+        base.UseAbility();
         DidDoubleJump = true;
         Movement.Jump();
     }
