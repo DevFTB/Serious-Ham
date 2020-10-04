@@ -8478,6 +8478,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: JumpSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: SlopeAccelFactor
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: MaximumSpeed
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55

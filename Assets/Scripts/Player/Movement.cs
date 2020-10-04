@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Velocity.y);
+
         // Debug.Log(FindSurfaceSlope());
         if (Input.GetKey(KeyCode.W))
         {
@@ -61,7 +61,11 @@ public class Movement : MonoBehaviour
                 Jump();
             }
         }
-                
+        else
+        {
+            Velocity.y -= Gravity * Time.deltaTime;
+        }
+
         Velocity.z -= Mathf.Sign(Velocity.z) * Friction * Time.deltaTime;
 
         if (IsClamped)
@@ -78,18 +82,22 @@ public class Movement : MonoBehaviour
             }
         }
 
-        Velocity.y -= Gravity * Time.deltaTime;
 
 
         float horizontal = Input.GetAxisRaw("Horizontal");
 
         transform.Rotate(new Vector3(0, horizontal * TurnSpeed * Time.deltaTime, 0));
 
-        cc.Move(transform.rotation * Velocity * Time.deltaTime);
 
 
 
     }
+
+    void LateUpdate()
+    {
+        cc.Move(transform.rotation * Velocity * Time.deltaTime);
+    }
+
 
     public void Clamp()
     {
