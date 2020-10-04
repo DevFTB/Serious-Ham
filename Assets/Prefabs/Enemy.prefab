@@ -4998,7 +4998,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.004
+  m_Volume: 1e-10
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5089,7 +5089,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3621807344412905282}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4dbb437078ccdb4f953aff63f2ef758, type: 3}
   m_Name: 
@@ -5109,7 +5109,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Damage: 40
+  Damage: 250
   Radius: 5
   DamageTargets:
   - {fileID: 0}
@@ -5128,7 +5128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ae63ed7e75c040aca544ab424e365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerDistance: 0
+  TriggerDistance: 10
   Target: {fileID: 0}
 --- !u!1 &4218372725986388730
 GameObject:

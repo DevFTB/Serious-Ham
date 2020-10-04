@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3dc6077c159a64382f242e0e1fce66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OffsetMultiplier: 10
+  OffsetMultiplier: 20
 --- !u!1 &594627825
 GameObject:
   m_ObjectHideFlags: 0
@@ -8288,6 +8288,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5762182034348642609, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: DamageLayer
+      value: 
+      objectReference: {fileID: 439462553}
+    - target: {fileID: 5762182034348642609, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: HPRegen
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762182034348642609, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: RegenDelay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8661400473581578905, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: DamageLayer
       value: 

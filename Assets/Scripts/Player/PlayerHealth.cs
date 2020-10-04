@@ -27,6 +27,24 @@ public class PlayerHealth : Health
     public override void TakeDamage(int amount)
     {
         base.TakeDamage(amount);
+        UpdateDamageLayer();
+    }
 
+    public override void BeginHeal()
+    {
+        base.BeginHeal();
+        UpdateDamageLayer();
+    }
+
+    public override void EndHealing()
+    {
+        base.EndHealing();
+        UpdateDamageLayer();
+    }
+
+    public override void HealingStep()
+    {
+        base.HealingStep();
+        UpdateDamageLayer();
     }
 }

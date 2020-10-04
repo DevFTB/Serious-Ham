@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 8661400473581578980}
   - component: {fileID: 8661400473581578979}
   - component: {fileID: 8661400473581578978}
-  - component: {fileID: 8661400473581578981}
   - component: {fileID: 8661400473581578905}
   - component: {fileID: 8661400473581578904}
+  - component: {fileID: 5762182034348642609}
   - component: {fileID: 8661400473581578982}
   - component: {fileID: 8661400473581578983}
   m_Layer: 0
@@ -157,37 +157,6 @@ MonoBehaviour:
   Gravity: 98
   JumpSpeed: 60
   TurnSpeed: 180
---- !u!114 &8661400473581578981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661400473581578977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0184f4225dd0e614eb087fc229e1dfdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 1
-  HPRegen: 0
-  RegenInterval: 0
-  RegenDelay: 0
-  DeathEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8661400473581578905}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8661400473581578905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +184,38 @@ MonoBehaviour:
   Cooldown: 3
   Movement: {fileID: 8661400473581578978}
   Key: 32
+--- !u!114 &5762182034348642609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661400473581578977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d3b9a65c71ace4c8450d928e84405a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 1000
+  HPRegen: 1
+  RegenInterval: 1
+  RegenDelay: 1
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8661400473581578905}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DamageLayer: {fileID: 0}
 --- !u!114 &8661400473581578982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +250,7 @@ MonoBehaviour:
   SlamSpeed: 25
   SlamForce: 1
   SlamRadius: 8
+  SlamDamage: 0
   UpwardsModifier: 2
   MinSlamHeight: 0
   VelocityFactor: 0.0015
