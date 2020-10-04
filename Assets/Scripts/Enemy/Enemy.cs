@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
 
         AudioSource = GetComponent<AudioSource>();
         ParticleSystem = GetComponent<ParticleSystem>();
+
         Player = GameObject.FindGameObjectWithTag("Player");
 
         SetTarget(Player.transform);

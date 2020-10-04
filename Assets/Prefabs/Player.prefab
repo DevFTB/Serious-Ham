@@ -151,10 +151,10 @@ GameObject:
   - component: {fileID: 8661400473581578979}
   - component: {fileID: 8661400473581578978}
   - component: {fileID: 8661400473581578905}
-  - component: {fileID: 8661400473581578904}
   - component: {fileID: 5762182034348642609}
   - component: {fileID: 8661400473581578982}
   - component: {fileID: 8661400473581578983}
+  - component: {fileID: 829089498386777071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -228,21 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f36d6d412d29a4f894fecbe5437cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8661400473581578904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661400473581578977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0386203a72300a44ea07038908d193c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cooldown: 3
-  Movement: {fileID: 8661400473581578978}
-  Key: 32
 --- !u!114 &5762182034348642609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +275,7 @@ MonoBehaviour:
   Cooldown: 2
   Movement: {fileID: 8661400473581578978}
   Duration: 0.5
-  DashSpeed: 25
+  DashSpeed: 100
   Key: 304
 --- !u!114 &8661400473581578983
 MonoBehaviour:
@@ -314,3 +299,18 @@ MonoBehaviour:
   MinSlamHeight: 0
   VelocityFactor: 0.0015
   Key: 306
+--- !u!114 &829089498386777071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661400473581578977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0386203a72300a44ea07038908d193c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 3
+  Movement: {fileID: 8661400473581578978}
+  Key: 32

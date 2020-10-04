@@ -17,7 +17,7 @@ public class TriggerFuseExploder : FuseExploder
         Trigger = GetComponent<ProximityTrigger>();
     }
 
-    public new void Update()
+    public void Update()
     {
         if (!isBurning)
         {
@@ -30,7 +30,7 @@ public class TriggerFuseExploder : FuseExploder
         {
             if (!Trigger.IsTriggered())
             {
-                ResetFuse();
+                Stop();
             }
 
         }

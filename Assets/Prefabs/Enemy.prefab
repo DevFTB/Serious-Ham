@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 2258274090404480487}
   - component: {fileID: 3621807344412905287}
   - component: {fileID: 3621807344412905288}
+  - component: {fileID: -6333488769218757971}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Slammable
@@ -107,7 +108,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -196,6 +197,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3621807344412905286}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: BeginDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -6333488769218757971}
+        m_TargetAssemblyTypeName: StreakUpdater, Assembly-CSharp
+        m_MethodName: IncrementStreak
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5094,25 +5107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dbb437078ccdb4f953aff63f2ef758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnExplode:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3621807344412905286}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: BeginDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   Damage: 250
   Radius: 5
-  DamageTargets:
-  - {fileID: 0}
+  DamageTargets: []
   FuseDuration: 2
   FuseSound: {fileID: 8300000, guid: 811b22110e4086a498058e1189672edb, type: 3}
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
@@ -5130,6 +5127,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerDistance: 10
   Target: {fileID: 0}
+--- !u!114 &-6333488769218757971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621807344412905282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d4d2cfb9e267c4aa10187a2aff2a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4218372725986388730
 GameObject:
   m_ObjectHideFlags: 0

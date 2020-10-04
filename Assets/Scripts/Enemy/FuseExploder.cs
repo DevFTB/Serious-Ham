@@ -41,9 +41,9 @@ public class FuseExploder : MonoBehaviour
 
     }
         
-    public void ResetFuse()
+    public void Stop()
     {
-        FuseTimer.Reset();
+        FuseTimer.Stop();
     }
 
     internal void SetDamageTarget(GameObject Object)
