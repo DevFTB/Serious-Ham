@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
     public float JumpSpeed;
     public float TurnSpeed;
 
+    public float SlopeAccelFactor;
+
 
     private CharacterController cc;
     private Vector3 Velocity; 
@@ -32,6 +34,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Velocity.y);
+        // Debug.Log(FindSurfaceSlope());
         if (Input.GetKey(KeyCode.W))
         {
             Velocity.z += Acceleration * Time.deltaTime;
@@ -46,6 +50,18 @@ public class Movement : MonoBehaviour
             
         }
 
+        if (cc.isGrounded)
+        {
+            //slope acceleration
+            // Debug.Log(SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope()));
+            Velocity.z -= SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope());
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Velocity.y = 0;
+                Jump();
+            }
+        }
+                
         Velocity.z -= Mathf.Sign(Velocity.z) * Friction * Time.deltaTime;
 
         if (IsClamped)
@@ -54,13 +70,6 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (cc.isGrounded)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Jump();
-            }
-        }
         else
         {
             if (IsClamped)
@@ -97,6 +106,11 @@ public class Movement : MonoBehaviour
         return Velocity.normalized;
     }
 
+    public Vector3 GetForwardVector()
+    {
+        return -Vector3.Cross(Vector3.up, transform.right);
+    }
+
     public Vector3 GetVelocity()
     {
         return Velocity;
@@ -123,5 +137,20 @@ public class Movement : MonoBehaviour
     public bool IsGrounded()
     {
         return cc.isGrounded;
+    }
+    
+     float FindSurfaceSlope()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, Vector3.down, out hit)) 
+        {
+            Vector3 SurfNormal = hit.normal;
+            Vector3 Forward = GetForwardVector();
+            return (Vector3.Angle(SurfNormal, Forward) - 90);
+        }
+        else
+        {
+            return 0;
+        }
     }
 }
