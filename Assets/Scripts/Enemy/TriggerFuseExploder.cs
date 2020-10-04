@@ -7,7 +7,6 @@ using UnityEngine.Events;
 [RequireComponent(typeof(ProximityTrigger))]
 public class TriggerFuseExploder : FuseExploder
 {
-    public UnityEvent OnExplode;
 
     private ProximityTrigger Trigger;
 
@@ -17,7 +16,7 @@ public class TriggerFuseExploder : FuseExploder
         Trigger = GetComponent<ProximityTrigger>();
     }
 
-    public override void Update()
+    public new void Update()
     {
         if (!isBurning)
         {
@@ -35,7 +34,7 @@ public class TriggerFuseExploder : FuseExploder
 
         }
 
-        base.Update();
+        TimerCheck();
     }
 }
 

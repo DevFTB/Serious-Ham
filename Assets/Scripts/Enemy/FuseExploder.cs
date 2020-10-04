@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FuseExploder : MonoBehaviour
 {
+    public UnityEvent OnExplode;
     public int Damage;
     public float Radius;
 
@@ -28,10 +30,19 @@ public class FuseExploder : MonoBehaviour
         exploder = new Exploder(Damage, Radius, gameObject, DamageTargets, ExplosionSound);
     }
 
-    public virtual void Update()
+    public void Update()
+    {
+        TimerCheck();
+    }
+
+    public void TimerCheck()
     {
         FuseTimer.Update();
-        if (FuseTimer.IsComplete && !exploder.IsExploded) exploder.Explode();
+        if (FuseTimer.IsComplete && !exploder.IsExploded)
+        {
+            OnExplode.Invoke();
+            exploder.Explode();
+        }
     }
 
     public void StartFuse()

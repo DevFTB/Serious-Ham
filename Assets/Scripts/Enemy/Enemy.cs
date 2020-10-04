@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void SetTarget(Transform target)
@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void BeginDeath() {
+        // Debug.Log("DEaTh");
         isDying = true;
 
         TFE.enabled = false;
