@@ -59,7 +59,7 @@ public class FuseExploder : MonoBehaviour
         AudioSource AudioSource = gameObject.GetComponent<AudioSource>();
         if (AudioSource)
         {
-            AudioSource.PlayOneShot(FuseSound);
+            AudioSource.PlayClipAtPoint(FuseSound, transform.position);
         }
         else
         {

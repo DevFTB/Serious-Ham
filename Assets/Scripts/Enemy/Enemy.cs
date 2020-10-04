@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private TriggerFuseExploder TFE;
     private ProximityTrigger Trigger;
 
+    private ParticleSystem ParticleSystem;
     private AudioSource AudioSource;
     private Health Health;
     private GameObject Player;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
         Trigger = GetComponent<ProximityTrigger>();
 
         AudioSource = GetComponent<AudioSource>();
+        ParticleSystem = GetComponent<ParticleSystem>();
         Player = GameObject.FindGameObjectWithTag("Player");
 
         SetTarget(Player.transform);
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        if (!AudioSource.isPlaying && IsDying)
+        if (!AudioSource.isPlaying && IsDying && !ParticleSystem.isPlaying)
         {
             Die();
         }
@@ -68,6 +70,8 @@ public class Enemy : MonoBehaviour
 
         Follow.enabled = false;
         TFE.enabled = false;
+
+        AudioSource.Stop();
 
         Scream();
     }
