@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
 
     public void Spawn()
     {
-        Debug.Log(Spawnee.name);
         for (int i = 0; i < Quantity; i++)
         {
             float theta = (float)((2.0 * Mathf.PI) * Random.value);
