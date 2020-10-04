@@ -50,9 +50,9 @@ public class Exploder
         foreach (GameObject Target in DamageTargets)
         {
             float dist = Vector3.Distance(Target.transform.position, ExploderTransform.position);
-
             if (dist <= Radius)
             {
+
                 Target.GetComponent<Health>().TakeDamage(Damage);
             }
 
@@ -65,7 +65,7 @@ public class Exploder
         {
             if (AudioSource)
             {
-                AudioSource.PlayOneShot(ExplosionSound);
+                AudioSource.PlayClipAtPoint(ExplosionSound, ExploderTransform.position);
                 // Debug.Log("BOOM TIME");
 
             }

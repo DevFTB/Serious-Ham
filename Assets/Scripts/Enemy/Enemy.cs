@@ -1,46 +1,38 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public AudioClip ScreamClip;
-
-    private Transform Target;
-
-    private Follow Follow;
-    
-    private TriggerFuseExploder TFE;
-    private ProximityTrigger Trigger;
-
-    private AudioSource AudioSource;
-    private Health Health;
-    private GameObject Player;
+    public AudioSource AudioSource;
+    public Health Health;
+    public GameObject Player;
 
     public UnityEvent EnemyDeathEvent;
-    private bool IsDying;
+    public bool IsDying;
+    public AudioClip ScreamClip;
+    public AudioClip SquishClip;
 
+    // Start is called before the first frame update
     public void Start()
     {
         Health = GetComponent<Health>();
-        Follow = GetComponent<Follow>();
-
-        TFE = GetComponent<TriggerFuseExploder>();
-        Trigger = GetComponent<ProximityTrigger>();
-
         AudioSource = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player");
-
-        SetTarget(Player.transform);
         EnemyDeathEvent.AddListener(Player.GetComponent<PlayerController>().Kill);
-
         AudioSource.clip = ScreamClip;
+
+
     }
 
-    public void Update()
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void CheckDeath()
     {
         if (!AudioSource.isPlaying && IsDying)
         {
@@ -48,33 +40,29 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    public virtual void BeginDeath()
+    {
+        IsDying = true;
+
+        AudioSource.Stop();
+
+        Squish();
+        Scream();
+    }
+
+    public void Die()
     {
         EnemyDeathEvent.Invoke();
         gameObject.SetActive(false);
     }
 
-    public void SetTarget(Transform target)
+    public void Squish()
     {
-        Target = target;
-
-        Follow.Target = Target;
-        Trigger.Target = Target;
-        TFE.SetDamageTarget(Target.gameObject);
+        AudioSource.PlayClipAtPoint(SquishClip, transform.position);
     }
 
-    public void BeginDeath() {
-        IsDying = true;
-
-        Follow.enabled = false;
-        TFE.enabled = false;
-
-        Scream();
-    }
-
-    private void Scream()
+    public void Scream()
     {
         AudioSource.PlayClipAtPoint(ScreamClip, transform.position);
     }
-
 }

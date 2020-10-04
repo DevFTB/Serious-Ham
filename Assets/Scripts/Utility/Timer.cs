@@ -18,21 +18,34 @@ public class Timer
         IsPaused = true;
         Duration = duration;
     }
+    public void Update()
+    {
+        if (!IsPaused) TimeElapsed += Time.deltaTime;
+    }
 
+    // Starts the Timer from whatever time elapsed it was at
     public void Start()
     {
         IsPaused = false;
     }
 
-    public void Update()
+    // Pauses the timer ( doesn't increment)
+    public void Pause()
     {
-        if(!IsPaused) TimeElapsed += Time.deltaTime;
+        IsPaused = true;
     }
 
+    // Resets the time elapsed 
     public void Reset()
     {
         TimeElapsed = 0;
-        IsPaused = true;
+    }
+
+    // Resets and sets paused
+    public void Stop()
+    {
+        Reset();
+        Pause();
     }
 
     public float GetPercentageCompletion()

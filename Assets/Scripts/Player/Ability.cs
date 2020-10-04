@@ -55,7 +55,7 @@ public abstract class Ability : MonoBehaviour
 
     public float GetCooldown()
     {
-        return Cooldown / CooldownTimer;
+        return CooldownTimer / Cooldown;
     }
 
 

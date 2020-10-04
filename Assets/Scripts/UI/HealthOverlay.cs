@@ -9,6 +9,7 @@ public class HealthOverlay : MonoBehaviour
     private bool Healing = false;
     private float Offset;
     public float OffsetMultiplier;
+    public float PulsePeriod;
     private float HealingTimer;
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,8 @@ public class HealthOverlay : MonoBehaviour
         if (Healing)
         {
             HealingTimer += Time.deltaTime;
-            Offset = Mathf.Sin(HealingTimer)/100;
-            Canvas.alpha = Health + Offset * OffsetMultiplier;
+            Offset = Mathf.Sin(2 * Mathf.PI * HealingTimer/ (PulsePeriod))/100;
+            Canvas.alpha = 1 - (Health + Offset * OffsetMultiplier);
         }
         
     }
@@ -33,7 +34,7 @@ public class HealthOverlay : MonoBehaviour
     public void UpdateHealth(float HealthPercentage, bool IsHealing)
     {
         Health = HealthPercentage;
-        Canvas.alpha = Health;
+        Canvas.alpha = 1 - Health;
         Healing = IsHealing;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
@@ -14,9 +15,10 @@ public class TriggerFuseExploder : FuseExploder
     {
         base.Start();
         Trigger = GetComponent<ProximityTrigger>();
+
     }
 
-    public new void Update()
+    public void Update()
     {
         if (!isBurning)
         {
@@ -29,7 +31,7 @@ public class TriggerFuseExploder : FuseExploder
         {
             if (!Trigger.IsTriggered())
             {
-                ResetFuse();
+                Stop();
             }
 
         }

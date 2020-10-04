@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-
+        
     }
 
     public void Kill()
