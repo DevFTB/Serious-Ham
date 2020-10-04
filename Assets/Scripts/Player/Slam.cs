@@ -61,7 +61,10 @@ public class Slam : Ability
             if (CollisionObject.gameObject.CompareTag("Slammable"))
             {
                 CollisionObject.gameObject.GetComponent<Rigidbody>().AddExplosionForce(SlamForce * -Movement.GetVelocity().y * VelocityFactor, transform.position, SlamRadius, UpwardsModifier, ForceMode.Impulse);
-                CollisionObject.gameObject.GetComponent<Health>().TakeDamage(SlamDamage);
+                if (CollisionObject.gameObject.GetComponent<Health>())
+                {
+                    CollisionObject.gameObject.GetComponent<Health>().TakeDamage(SlamDamage);
+                }
             }
         }
     }

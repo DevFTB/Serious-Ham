@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
     private GameObject Player;
 
     public UnityEvent EnemyDeathEvent;
-    private bool isDying;
+    private bool IsDying;
 
     public void Start()
     {
@@ -41,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        if (!AudioSource.isPlaying && isDying)
+        if (!AudioSource.isPlaying && IsDying)
         {
             Die();
         }
@@ -63,9 +64,9 @@ public class Enemy : MonoBehaviour
     }
 
     public void BeginDeath() {
-        // Debug.Log("DEaTh");
-        isDying = true;
+        IsDying = true;
 
+        Follow.enabled = false;
         TFE.enabled = false;
 
         Scream();
@@ -73,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     private void Scream()
     {
-        AudioSource.PlayOneShot(ScreamClip);
+        AudioSource.PlayClipAtPoint(ScreamClip, transform.position);
     }
 
 }

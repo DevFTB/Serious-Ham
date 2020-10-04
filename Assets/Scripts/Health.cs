@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
 
     public int HPRegen;
     public bool IsHealing { private set; get; }
+    private bool IsDead;
     
     public int RegenInterval;
     private float HealTimer;
@@ -24,6 +25,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        IsDead = false;
         RecentlyDamaged = false;
         CurrentHP = MaxHP;
         IsHealing = false;
@@ -53,7 +55,7 @@ public class Health : MonoBehaviour
             DamageTimer = 0.0f;
         }
 
-        if (CurrentHP <= 0)
+        if (CurrentHP <= 0 && !IsDead)
         {
             Die();
         } 
@@ -84,6 +86,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
+        IsDead = true;
         DeathEvent.Invoke();
     }
 
