@@ -4809,7 +4809,7 @@ MonoBehaviour:
   Damage: 100
   Radius: 10
   DamageTargets: []
-  FuseDuration: 4
+  FuseDuration: 1
   FuseSound: {fileID: 8300000, guid: 811b22110e4086a498058e1189672edb, type: 3}
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
   OnExplode:
