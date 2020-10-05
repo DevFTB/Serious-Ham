@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503924715472864073, guid: 574ef564421d76947b9a2fe872e8ceab, type: 3}
       propertyPath: m_Name
-      value: ShooterEnemy
+      value: GattlingEnemy 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503924715472864079, guid: 574ef564421d76947b9a2fe872e8ceab, type: 3}
+      propertyPath: m_AgentTypeID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 574ef564421d76947b9a2fe872e8ceab, type: 3}

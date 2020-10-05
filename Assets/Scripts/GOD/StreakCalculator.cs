@@ -11,6 +11,9 @@ public class StreakTier
     public AudioClip Sound;
     public int PointMultiplier;
     public Sprite Image;
+    public AudioClip Music;
+    public AudioClip MusicLoop;
+
     private class SortByPointsRequired : IComparer<StreakTier>
     {
         public int Compare(StreakTier sl1, StreakTier sl2)
@@ -34,6 +37,8 @@ public class StreakTier
 
 public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
 {
+    public AudioClip DefaultMusic;
+    public AudioClip DefaultMusicLoop;
     public float TimeTillLoss;
     public List<StreakTier> UnsortedStreakTiers;
     private List<StreakTier> StreakTiers;
@@ -148,5 +153,17 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
     public float GetLossPercentage()
     {
         return 1 - LossTimer.GetPercentageCompletion();
+    }
+
+    public AudioClip GetCurrentMusic()
+    {
+        if (HasStreak()) return CurrentStreakTier.Music;
+        else return DefaultMusic;
+    }
+
+    public AudioClip GetCurrentMusicLoop()
+    {
+        if (HasStreak()) return CurrentStreakTier.MusicLoop;
+        else return DefaultMusicLoop;
     }
 }

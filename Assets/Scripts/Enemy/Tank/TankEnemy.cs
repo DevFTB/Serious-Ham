@@ -80,7 +80,7 @@ public class TankEnemy : Enemy
     public override void Die()
     {
         Exploder exploder = new Exploder(0, ShellRadius, transform, new List<GameObject>(), ExplosionSound, AudioSource, Explosion);
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<Collider>().enabled = false;
         foreach (MeshRenderer mesh in Meshes)
         {
             mesh.enabled = false;
