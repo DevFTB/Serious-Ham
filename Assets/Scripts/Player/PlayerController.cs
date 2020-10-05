@@ -4,28 +4,41 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int Streak = 0;
+    public Animator Anim;
 
-    // Start is called before the first frame update
-    void Start()
+    public float MaximumSpeedForIdle;
+
+    private bool JumpedYet = false;
+    private Movement Movement;
+
+    public void Start()
     {
-        
+        Movement = GetComponent<Movement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
+
+        bool IsIdle = Mathf.Abs(Movement.GetVelocity().z) < MaximumSpeedForIdle;
+        bool MovingForward = Movement.GetVelocity().z > 0;
+
+        Anim.SetBool("MovingForward", MovingForward);
+
+        Debug.Log(Movement.GetVelocity().z + ", " + IsIdle + ", " + Movement.IsGrounded());
+        Anim.SetBool("IsIdle", IsIdle);
         
-    }
+        if(!JumpedYet && Movement.Jumped)
+        {
+            Anim.SetTrigger("Jump");
+             
+        }
 
+        if(JumpedYet && !Movement.Jumped)
+        {
+            JumpedYet = false;
+        }
 
-    public void Die()
-    {
-        
-    }
+        Anim.SetBool("OnGround", Movement.IsGrounded());
 
-    public void Kill()
-    {
-        Streak += 1;
     }
 }
