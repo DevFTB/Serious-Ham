@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: -8680945559445881234}
   - component: {fileID: 2005678855140713781}
   - component: {fileID: 8649903292767958133}
-  - component: {fileID: -443923335537023418}
-  m_Layer: 0
+  - component: {fileID: 1551744522642133650}
+  m_Layer: 8
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxTime: 1000
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
-  DamageTargets: []
 --- !u!82 &-8680945559445881234
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4991,7 +4990,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!54 &-443923335537023418
+--- !u!54 &1551744522642133650
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
