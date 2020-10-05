@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3621807344412905283}
   - component: {fileID: 2258274090404480487}
   - component: {fileID: 7816243630244278274}
+  - component: {fileID: 7067557919489112993}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Slammable
@@ -171,6 +172,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7067557919489112993}
+        m_TargetAssemblyTypeName: RagdollExplosion, Assembly-CSharp
+        m_MethodName: Kaboom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &2258274090404480487
 AudioSource:
   m_ObjectHideFlags: 0
@@ -279,6 +292,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d4d2cfb9e267c4aa10187a2aff2a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7067557919489112993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621807344412905282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d901063c508597e49830cff738c3f32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ragdoll: {fileID: 2905264658814607544, guid: 20a4b33dad40a3941aa9d10a71a39410, type: 3}
 --- !u!1 &4218372725986388730
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +318,7 @@ GameObject:
   - component: {fileID: 6983969980263738551}
   - component: {fileID: 5591414712274256479}
   - component: {fileID: 9058659763288257658}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +430,7 @@ GameObject:
   - component: {fileID: 2256254740252543893}
   - component: {fileID: 3704046045992169689}
   - component: {fileID: 7079211150907818297}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
