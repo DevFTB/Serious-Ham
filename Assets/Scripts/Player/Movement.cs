@@ -24,7 +24,9 @@ public class Movement : MonoBehaviour
 
     private CharacterController cc;
     private Vector3 Velocity; 
-    
+
+
+    public bool Jumped { get; private set; }    
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class Movement : MonoBehaviour
 
         if (cc.isGrounded)
         {
+            if (Jumped) Jumped = false;
 
             if (Velocity.z != 0)
             {
@@ -155,6 +158,7 @@ public class Movement : MonoBehaviour
 
     public void Jump()
     {
+        Jumped = true;
         Velocity.y += JumpSpeed;
     }
 

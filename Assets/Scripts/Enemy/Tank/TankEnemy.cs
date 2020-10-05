@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TankEnemy : Enemy
 {
-    private Follow Follow;
+    private TankFollow TankFollow;
+
     private Transform Target;
     public GameObject shell;
     public float HoriSpeed;
@@ -15,20 +16,20 @@ public class TankEnemy : Enemy
     {
         base.Start();
 
-        Follow = GetComponent<Follow>();
+        TankFollow = GetComponent<TankFollow>();
         SetTarget(Player.transform);
 
     }
 
     private void Update() {
-        base.CheckDeath();
+        CheckDeath();
     }
 
     public void SetTarget(Transform target)
     {
         Target = target;
 
-        Follow.Target = Target;
+        TankFollow.Target = Target;
     }
 
     public void Shoot()

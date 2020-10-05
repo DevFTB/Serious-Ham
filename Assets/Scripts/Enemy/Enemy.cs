@@ -21,10 +21,7 @@ public class Enemy : MonoBehaviour
         Health = GetComponent<Health>();
         AudioSource = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        EnemyDeathEvent.AddListener(Player.GetComponent<PlayerController>().Kill);
         AudioSource.clip = ScreamClip;
-
-
     }
 
     // Update is called once per frame
