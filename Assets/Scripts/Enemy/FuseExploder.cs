@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FuseExploder : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class FuseExploder : MonoBehaviour
     private Timer FuseTimer;
 
     private Exploder exploder;
+    public UnityEvent OnExplode;
+
 
     public virtual void Start()
     {
@@ -30,7 +33,11 @@ public class FuseExploder : MonoBehaviour
     public void TimerCheck()
     {
         FuseTimer.Update();
-        if (FuseTimer.IsComplete && !exploder.IsExploded) exploder.Explode();
+        if (FuseTimer.IsComplete && !exploder.IsExploded)
+        {
+            exploder.Explode();
+            OnExplode.Invoke();
+        }
     }
 
     public void StartFuse()

@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeSpawner : Spawner
+public class RangeTimeSpawner : Spawner
 {
     public int SpawningPeriod;
     private float timeSinceLastSpawn;
+    public Transform Player;
+    public float MinPlayerDistance;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         timeSinceLastSpawn = SpawningPeriod;
     }
 
@@ -18,10 +22,15 @@ public class TimeSpawner : Spawner
     {
         timeSinceLastSpawn += Time.deltaTime;
 
-        if(timeSinceLastSpawn >= SpawningPeriod)
+        if(CheckCanSpawn())
         {
             Spawn();
             timeSinceLastSpawn = 0;
         }
+    }
+
+    bool CheckCanSpawn()
+    {
+        return ((Vector3.Distance(transform.position, Player.position) > MinPlayerDistance) && timeSinceLastSpawn >= SpawningPeriod);
     }
 }

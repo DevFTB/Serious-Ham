@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &143509441530467618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502874132598773386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432d489ed862546429cee9d15755f2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  WalkableIndex: 0
+  WalkableCost: 2
+  JumpIndex: 2
+  JumpCost: 4
+--- !u!114 &3200762373748729197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502874132598773386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a485f14512fdc4491ef7b4ccb2a1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 2128104428519201839}
+  Health: {fileID: 3502874132598773387}
+  Player: {fileID: 0}
+  EnemyDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  IsDying: 0
+  ScreamClip: {fileID: 8300000, guid: 973f3e341391c8846960771c9c22c26b, type: 3}
+  SquishClip: {fileID: 8300000, guid: 5c6bff5e6476d1340891b8ec617f1397, type: 3}
+  Waypoints: []
+  WaypointDistance: 5
 --- !u!1001 &207037910104775112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: StreakUpdater, Assembly-CSharp
+      value: Enemy, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -30,14 +70,34 @@ PrefabInstance:
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 7973460183769360842}
+      objectReference: {fileID: 3200762373748729197, guid: 1bf2f2dfd6ad85a4eaee09c1233a3f67, type: 3}
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: IncrementStreak
+      value: BeginDeath
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: IsRollable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: IsSlammable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: m_WalkableMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: m_AgentTypeID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905295, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -85,14 +145,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
---- !u!114 &7973460183769360842 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7816243630244278274, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+--- !u!1 &3502874132598773386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3621807344412905282, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
   m_PrefabInstance: {fileID: 207037910104775112}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &3502874132598773387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+  m_PrefabInstance: {fileID: 207037910104775112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502874132598773386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d4d2cfb9e267c4aa10187a2aff2a8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0184f4225dd0e614eb087fc229e1dfdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2128104428519201839 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2258274090404480487, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+  m_PrefabInstance: {fileID: 207037910104775112}
+  m_PrefabAsset: {fileID: 0}

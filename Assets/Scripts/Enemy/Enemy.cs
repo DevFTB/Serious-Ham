@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public AudioClip ScreamClip;
     public AudioClip SquishClip;
 
+
     // Start is called before the first frame update
     public void Start()
     {

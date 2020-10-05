@@ -58,7 +58,8 @@ public class Slam : Ability
         Collider[] InRadius = Physics.OverlapSphere(transform.position, SlamRadius);
         foreach (var CollisionObject in InRadius)
         {
-            if (CollisionObject.gameObject.CompareTag("Slammable"))
+            var Health = CollisionObject.gameObject.GetComponent<Health>();
+            if (Health && Health.IsSlammable)
             {
                 CollisionObject.gameObject.GetComponent<Rigidbody>().AddExplosionForce(SlamForce * -Movement.GetVelocity().y * VelocityFactor, transform.position, SlamRadius, UpwardsModifier, ForceMode.Impulse);
                 if (CollisionObject.gameObject.GetComponent<Health>())

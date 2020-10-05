@@ -48,3 +48,5 @@ MonoBehaviour:
   Quantity: 4
   Separation: 3
   SpawningPeriod: 5
+  Player: {fileID: 0}
+  MinPlayerDistance: 25

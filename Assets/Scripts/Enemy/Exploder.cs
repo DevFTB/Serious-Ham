@@ -14,6 +14,7 @@ public class Exploder
     private AudioSource AudioSource;
     private AudioClip ExplosionSound;
 
+
     private ParticleSystem PS;
     public bool IsExploded { get; private set; }
 
@@ -52,7 +53,6 @@ public class Exploder
             float dist = Vector3.Distance(Target.transform.position, ExploderTransform.position);
             if (dist <= Radius)
             {
-
                 Target.GetComponent<Health>().TakeDamage(Damage);
             }
 

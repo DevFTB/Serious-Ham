@@ -199,6 +199,14 @@ PrefabInstance:
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: IsSlammable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: IsRollable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_StoppingDistance
       value: 20

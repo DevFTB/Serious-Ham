@@ -4798,6 +4798,21 @@ MonoBehaviour:
   FuseDuration: 4
   FuseSound: {fileID: 8300000, guid: 811b22110e4086a498058e1189672edb, type: 3}
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
+  OnExplode:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5569920579216042059}
+        m_TargetAssemblyTypeName: ExploderEnemy, Assembly-CSharp
+        m_MethodName: BeginDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5569920579216042059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4905,6 +4920,14 @@ PrefabInstance:
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: IsRollable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: IsSlammable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905290, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_IsTrigger

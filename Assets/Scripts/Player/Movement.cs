@@ -17,8 +17,10 @@ public class Movement : MonoBehaviour
     public float JumpSpeed;
     public float TurnSpeed;
 
-    public float SlopeAccelFactor;
+    public float RollingVolume;
 
+    public AudioSource RollingAudioSource;
+    public float SlopeAccelFactor;
 
     private CharacterController cc;
     private Vector3 Velocity; 
@@ -52,9 +54,23 @@ public class Movement : MonoBehaviour
 
         if (cc.isGrounded)
         {
+
+            if (Velocity.z != 0)
+            {
+                RollingAudioSource.volume = RollingVolume * Velocity.z / MaximumSpeed;
+                if (!RollingAudioSource.isPlaying)
+                {
+                    RollingAudioSource.Play();
+                }
+            }
+            else
+            {
+                RollingAudioSource.Stop();
+            }
             //slope acceleration
             // Debug.Log(SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope()));
             Velocity.z -= SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope());
+
             if (Input.GetKey(KeyCode.Space))
             {
                 Velocity.y = 0;
