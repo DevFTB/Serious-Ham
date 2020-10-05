@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  AggroRange: 100
+  AggroRange: 300
 --- !u!114 &7555049785630514955
 MonoBehaviour:
   m_ObjectHideFlags: 0
