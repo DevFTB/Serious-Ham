@@ -20,7 +20,7 @@ public class Timer
     }
     public void Update()
     {
-        if (!IsPaused) TimeElapsed += Time.deltaTime;
+        if (!IsPaused && !IsComplete) TimeElapsed += Time.deltaTime;
     }
 
     // Starts the Timer from whatever time elapsed it was at
