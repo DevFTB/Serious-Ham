@@ -41,7 +41,7 @@ public class TankEnemy : Enemy
         Vector3 ToTarget = TargetPos - StartPos;
         float Dist = ToTarget.magnitude;
 
-        float VertSpeed = (TargetPos.y * HoriSpeed / Dist)  - (0.5f * -Gravity * (Dist/HoriSpeed));
+        float VertSpeed = ((TargetPos.y - StartPos.y) * HoriSpeed / Dist)  - (0.5f * -Gravity * (Dist/HoriSpeed));
 
         Vector3 Velocity = ToTarget.normalized * HoriSpeed + Vector3.up * VertSpeed;
 
