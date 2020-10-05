@@ -102,6 +102,10 @@ PrefabInstance:
       propertyPath: SpawningPeriod
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8233460443234678524, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
+      propertyPath: BaseQuantity
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
 --- !u!4 &6627272557570914823 stripped
