@@ -441,7 +441,7 @@ MonoBehaviour:
   selectedRoadRightInnerOffset: 0
   selectedCrossingMaterial: 0
   crossingTextureInfoIndex: 0
-  handleSelection: 1
+  handleSelection: -1
   positionHandleSelection: 1
   markerDirXZ: 0
   defaultCrossing: {fileID: 0}
@@ -1351,8 +1351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentSpawnees: 0
-  Spawnee: {fileID: 4417692102912583133, guid: c7dbaa9143714324facc661cc9958d4d, type: 3}
-  Quantity: 10
+  Spawnee: {fileID: 3503924715472864073, guid: 574ef564421d76947b9a2fe872e8ceab, type: 3}
+  Quantity: 1
   Separation: 10
   SpawningPeriod: 3
   Player: {fileID: 0}
@@ -8727,92 +8727,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 907267572}
     - target: {fileID: 4376452282161265697, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: RollingVolume
-      value: 0.5
+      propertyPath: SlopeAccelFactor
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376452282161265698, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
+      propertyPath: m_LocalPosition.x
+      value: 42.81
       objectReference: {fileID: 0}
     - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalPosition.y
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 5762182034348642609, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: DamageLayer
-      value: 
-      objectReference: {fileID: 388464058}
-    - target: {fileID: 8661400473581578977, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: JumpSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: MaximumSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: Acceleration
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578978, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: AirMovementDampeningFactor
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40
+      value: 44.39
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578980, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
+    - target: {fileID: 4376452282161265703, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578982, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: Duration
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661400473581578982, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
-      propertyPath: DashSpeed
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32c41bb4588fa674eb9548a6c8511bbe, type: 3}
@@ -9419,8 +9383,7 @@ MonoBehaviour:
   OffsetMagnitude: 20
   OffsetAngle: 24
   RotationalOffset: {x: -10, y: 0, z: 0}
-  Smoothing: 0.5
-  FallOverMargin: 0
+  Smoothing: 0.4
 --- !u!114 &2075099187
 MonoBehaviour:
   m_ObjectHideFlags: 0

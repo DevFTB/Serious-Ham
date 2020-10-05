@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class TankEnemy : Enemy
 {
-    private TankFollow TankFollow;
+    public TankFollow TankFollow;
 
-    private Transform Target;
+    public Transform Target;
     public GameObject shell;
     public float HoriSpeed;
     public int ShellDamage;
@@ -14,7 +15,10 @@ public class TankEnemy : Enemy
     public float Gravity;
     public AudioClip ShootSound;
     public float MaxRandRange;
-    private void Start()
+    public Explosion Explosion;
+    public AudioClip ExplosionSound;
+    public List<MeshRenderer> Meshes;
+    public override void Start()
     {
         base.Start();
 
@@ -25,6 +29,11 @@ public class TankEnemy : Enemy
 
     private void Update() {
         CheckDeath();
+        if (TankFollow.OutsideOfMinimumSeperation())
+        {
+            Quaternion direction = Quaternion.LookRotation(Target.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime);
+        }
     }
 
     public void SetTarget(Transform target)
@@ -36,6 +45,7 @@ public class TankEnemy : Enemy
 
     public void Shoot()
     {
+
         Vector3 StartOffset = new Vector3(0, 2, 0);
 
         float XRand = Random.Range(-MaxRandRange, MaxRandRange);
@@ -44,14 +54,14 @@ public class TankEnemy : Enemy
 
         Vector3 StartPos = transform.position + StartOffset;
         Vector3 TargetPos = Target.transform.position + EndOffset;
-        Vector3 ToTarget = TargetPos - StartPos;
+        Vector3 ToTarget = new Vector3(TargetPos.x - StartPos.x, 0, TargetPos.z - StartPos.z);
         float Dist = ToTarget.magnitude;
 
-        float VertSpeed = ((TargetPos.y - StartPos.y) * HoriSpeed / Dist)  - (0.5f * -Gravity * (Dist/HoriSpeed));
+        float VertSpeed = ((TargetPos.y - StartPos.y) * HoriSpeed / Dist) - (0.5f * -Gravity * (Dist / HoriSpeed));
 
         Vector3 Velocity = ToTarget.normalized * HoriSpeed + Vector3.up * VertSpeed;
-
-        List<GameObject> DamageTargets = new List<GameObject> {Target.gameObject}; 
+        
+        List<GameObject> DamageTargets = new List<GameObject> { Target.gameObject };
 
         AudioSource.PlayClipAtPoint(ShootSound, StartPos);
 
@@ -61,4 +71,22 @@ public class TankEnemy : Enemy
         // ShotBullet.GetComponent<Bullet>().Shoot((transform.forward + Rand) * BulletSpeed, BulletDamage); 
     }
 
+    public override void BeginDeath()
+    {
+        base.BeginDeath();
+
+    }
+
+    public override void Die()
+    {
+        Exploder exploder = new Exploder(0, ShellRadius, transform, new List<GameObject>(), ExplosionSound, AudioSource, Explosion);
+        GetComponent<BoxCollider>().enabled = false;
+        foreach (MeshRenderer mesh in Meshes)
+        {
+            mesh.enabled = false;
+        }
+        exploder.Explode();
+        Destroy(gameObject, Explosion.Duration);
+
+    }
 }

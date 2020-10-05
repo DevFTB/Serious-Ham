@@ -11,7 +11,7 @@ public class ShooterEnemy : Enemy
     public float BulletSpeed;
     public int BulletDamage;
     public GameObject Gun;
-    private TankFollow Follow;
+    private Follow Follow;
     private Transform Target;
     public float SpreadFactor;
     public float ShootRange;
@@ -19,11 +19,11 @@ public class ShooterEnemy : Enemy
 
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         base.Start();
 
-        Follow = GetComponent<TankFollow>();
+        Follow = GetComponent<Follow>();
         SetTarget(Player.transform);
 
     }
@@ -59,7 +59,7 @@ public class ShooterEnemy : Enemy
         float RandY = Random.Range(-SpreadFactor, SpreadFactor);
         float RandZ = Random.Range(-SpreadFactor, SpreadFactor);
         Vector3 Rand = new Vector3(RandX, RandY, RandZ);
-        GameObject ShotBullet = Instantiate(bullet, Gun.transform.position, transform.rotation);
+        GameObject ShotBullet = Instantiate(bullet, transform.position, transform.rotation);
         ShotBullet.GetComponent<Bullet>().Shoot((transform.forward + Rand) * BulletSpeed, BulletDamage); 
     }
 }

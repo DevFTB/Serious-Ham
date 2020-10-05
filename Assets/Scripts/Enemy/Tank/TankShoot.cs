@@ -10,6 +10,7 @@ public class TankShoot : Ability
     void Start()
     {
         base.Start();
+        CooldownTimer = 0.0f;
         Cooldown = 60f / AttacksPerMinute;
     }
 
@@ -22,5 +23,11 @@ public class TankShoot : Ability
             TankEnemy.Shoot();
             UseAbility();
         }
+    }
+
+    public override bool GetAvailable()
+    {
+        return (base.GetAvailable() && TankEnemy.TankFollow.OutsideOfMinimumSeperation() && Vector3.Dot(TankEnemy.Target.transform.position - transform.position, transform.forward) > 0.9);
+
     }
 }

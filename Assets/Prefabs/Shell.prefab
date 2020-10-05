@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdcaef3090e97548bfd67b983061769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 1000
+  MaxTime: 5
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
   AudioSource: {fileID: -8680945559445881234}
   DamageTargets: []

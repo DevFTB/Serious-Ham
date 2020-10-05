@@ -24,4 +24,5 @@ public class CameraController : MonoBehaviour
     {
         CameraShake.AddShake(ExplosionShakeDuration, ExplosionShakeIntensity);
     }
+
 }

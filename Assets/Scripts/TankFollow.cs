@@ -20,19 +20,23 @@ public class TankFollow : MonoBehaviour
     {
         float dist = Vector3.Distance(transform.position, Target.position);
 
-        if(dist > MinimumSeparation)
+
+        if (OutsideOfMinimumSeperation())
         {
             Agent.SetDestination(Target.position);
-            Debug.Log(dist + ", Moving Towards");
-
         }
         else
         {
             Vector3 Destination = ((transform.position - Target.position).normalized * (MinimumSeparation - dist)) + transform.position;
 
-            Debug.Log(dist + ", Moving Away to " + Destination + " from Current Pos: " + transform.position);
             Agent.SetDestination(Destination);
 
         }
+    }
+
+    public bool OutsideOfMinimumSeperation()
+    {
+        float dist = Vector3.Distance(transform.position, Target.position);
+        return (dist > MinimumSeparation);
     }
 }

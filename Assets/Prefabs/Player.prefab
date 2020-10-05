@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5179417488991435044}
   - component: {fileID: 8663678291515254750}
   - component: {fileID: 2776042976071822142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontRollCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4376452282161265701}
   - component: {fileID: 4376452282161265700}
   - component: {fileID: 5696690137846011180}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -132,11 +132,13 @@ MonoBehaviour:
   Friction: 3
   BrakingAcceleration: 8.99
   MaximumSpeed: 50
-  AirMovementDampeningFactor: 1
+  AirMovementDampeningFactor: 0.6
   Gravity: 98
   JumpSpeed: 50
   TurnSpeed: 180
-  SlopeAccelFactor: 0
+  RollingVolume: 0.5
+  RollingAudioSource: {fileID: 0}
+  SlopeAccelFactor: 0.002
 --- !u!114 &4376452282161265754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +252,7 @@ GameObject:
   - component: {fileID: 4376452282498273031}
   - component: {fileID: 4376452282498273028}
   - component: {fileID: 4376452282498273029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,9 +404,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 901897122485332503, guid: 57efca81b5a56e94590d3ea05445fc4d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 57efca81b5a56e94590d3ea05445fc4d, type: 3}
       propertyPath: m_Name
       value: Hamster 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57efca81b5a56e94590d3ea05445fc4d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2260375334962874249, guid: 57efca81b5a56e94590d3ea05445fc4d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442367092795593866, guid: 57efca81b5a56e94590d3ea05445fc4d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57efca81b5a56e94590d3ea05445fc4d, type: 3}
