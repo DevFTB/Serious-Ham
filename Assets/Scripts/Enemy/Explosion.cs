@@ -12,6 +12,7 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         Timer = 0.0f;
+        StopExplode();
     }
 
     // Update is called once per frame
@@ -35,8 +36,9 @@ public class Explosion : MonoBehaviour
         foreach (ParticleSystem ps in Particles)
         {
             ps.Play();
-            Exploded = true;
         }
+        Exploded = true;
+
     }
 
     void StopExplode()
@@ -44,7 +46,8 @@ public class Explosion : MonoBehaviour
         foreach (ParticleSystem ps in Particles)
         {
             ps.Stop();
-            Exploded = true;
         }
+        Exploded = false;
+
     }
 }

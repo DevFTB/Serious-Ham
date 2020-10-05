@@ -4809,8 +4809,8 @@ MonoBehaviour:
   Damage: 100
   Radius: 10
   DamageTargets: []
-  FuseDuration: 1
-  FuseSound: {fileID: 8300000, guid: 811b22110e4086a498058e1189672edb, type: 3}
+  FuseDuration: 0.7
+  FuseSound: {fileID: 8300000, guid: d49da7edb8ecd2042badc89adf2038af, type: 3}
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
   OnExplode:
     m_PersistentCalls:
@@ -4867,7 +4867,7 @@ MonoBehaviour:
   SquishClip: {fileID: 8300000, guid: 5c6bff5e6476d1340891b8ec617f1397, type: 3}
   ExplodeDuration: 2
   Meshes:
-  - {fileID: 7940663529262593457}
+  - {fileID: 2311362061148006354}
 --- !u!114 &8831151003688525797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,7 +4882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerDistance: 10
   Target: {fileID: 0}
---- !u!1 &6538882995864719642
+--- !u!1 &8167607432149737229
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4890,45 +4890,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7118426379545845744}
-  - component: {fileID: 1960449588150462830}
-  - component: {fileID: 7940663529262593457}
+  - component: {fileID: 2295346783236918076}
+  - component: {fileID: 691423100856789320}
+  - component: {fileID: 2311362061148006354}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7118426379545845744
+--- !u!4 &2295346783236918076
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538882995864719642}
+  m_GameObject: {fileID: 8167607432149737229}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalPosition: {x: 0, y: 4.64, z: 0}
+  m_LocalScale: {x: 0.89246446, y: 0.40485704, z: 1}
   m_Children: []
   m_Father: {fileID: 4417692102912583120}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1960449588150462830
+--- !u!33 &691423100856789320
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538882995864719642}
-  m_Mesh: {fileID: -5495902117074765545, guid: 719ca70b40757e144ba25bad8bdda0ec, type: 3}
---- !u!23 &7940663529262593457
+  m_GameObject: {fileID: 8167607432149737229}
+  m_Mesh: {fileID: 2534964839176971238, guid: 0e2218872ae438842a74f057aed2a867, type: 3}
+--- !u!23 &2311362061148006354
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538882995864719642}
+  m_GameObject: {fileID: 8167607432149737229}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -4941,7 +4941,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53bcb426812ccb244ac869c8d55fcc21, type: 2}
+  - {fileID: 1442177210772602984, guid: 0e2218872ae438842a74f057aed2a867, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4972,7 +4972,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2258274090404480487, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_Volume
-      value: 0.0001
+      value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 2258274090404480487, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: BypassListenerEffects
@@ -5024,7 +5024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_BaseOffset
-      value: -0.7
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_Speed
