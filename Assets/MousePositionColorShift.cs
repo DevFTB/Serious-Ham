@@ -63,7 +63,6 @@ public class MousePositionColorShift : MonoBehaviour
         {
             c = Gradient.Evaluate(GradientAmount);
         }
-        Debug.Log(GradientAmount);
 
         Image.color = c;
     }

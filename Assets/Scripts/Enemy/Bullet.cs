@@ -42,7 +42,6 @@ public class Bullet : MonoBehaviour
         Damage = BulletDamage;
         Lifetime = MaxDistance / Velocity.magnitude;
         Timing = true;
-
     }
 
     private void OnTriggerEnter(Collider other)

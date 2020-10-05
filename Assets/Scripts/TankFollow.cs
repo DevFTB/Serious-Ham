@@ -8,6 +8,7 @@ public class TankFollow : MonoBehaviour
 {
     public Transform Target;
     public NavMeshAgent Agent;
+    public float AggroRange;
 
     public float MinimumSeparation;
 
@@ -20,10 +21,19 @@ public class TankFollow : MonoBehaviour
     {
         float dist = Vector3.Distance(transform.position, Target.position);
 
+        if (Vector3.Distance(transform.position, Target.transform.position) < AggroRange)
+        {
+            Agent.isStopped = false;
+        }
+        else
+        {
+            Agent.isStopped = true;
+        }
 
         if (OutsideOfMinimumSeperation())
         {
-            Agent.SetDestination(Target.position);
+            Quaternion direction = Quaternion.LookRotation(Target.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime);
         }
         else
         {

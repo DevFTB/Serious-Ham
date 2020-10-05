@@ -53,17 +53,18 @@ MonoBehaviour:
   TankFollow: {fileID: 0}
   Target: {fileID: 0}
   shell: {fileID: 2111613420183864632, guid: 53304d6f175968d4289e717f0bf5e987, type: 3}
-  HoriSpeed: 15
+  HoriSpeed: 70
   ShellDamage: 150
-  ShellRadius: 10
-  Gravity: 5
+  ShellRadius: 13
+  Gravity: 35
   ShootSound: {fileID: 8300000, guid: cac244d172016904cb454b1e07b55d98, type: 3}
-  MaxRandRange: 1
+  MaxRandRange: 5
   Explosion: {fileID: 2671783243385191631}
   ExplosionSound: {fileID: 8300000, guid: a900a7862e4c3c44290fc5ccbce73e48, type: 3}
   Meshes:
   - {fileID: 5192850441908010512}
   - {fileID: 1505167476643126784}
+  ShootRange: 300
 --- !u!114 &9202622163464137331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Agent: {fileID: 3503924715472864079}
+  AggroRange: 300
   MinimumSeparation: 50
 --- !u!1 &5019787332017088223
 GameObject:
@@ -383,6 +385,10 @@ PrefabInstance:
     - target: {fileID: 3621807344412905295, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909845289779649071, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: PointValue
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}

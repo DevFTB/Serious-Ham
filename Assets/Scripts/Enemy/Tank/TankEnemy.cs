@@ -18,6 +18,7 @@ public class TankEnemy : Enemy
     public Explosion Explosion;
     public AudioClip ExplosionSound;
     public List<MeshRenderer> Meshes;
+    public float ShootRange;
     public override void Start()
     {
         base.Start();
@@ -29,11 +30,6 @@ public class TankEnemy : Enemy
 
     private void Update() {
         CheckDeath();
-        if (TankFollow.OutsideOfMinimumSeperation())
-        {
-            Quaternion direction = Quaternion.LookRotation(Target.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime);
-        }
     }
 
     public void SetTarget(Transform target)
@@ -75,6 +71,11 @@ public class TankEnemy : Enemy
     {
         base.BeginDeath();
 
+    }
+
+    public bool GetInRange()
+    {
+        return (Vector3.Distance(Player.transform.position, transform.position) < ShootRange);
     }
 
     public override void Die()

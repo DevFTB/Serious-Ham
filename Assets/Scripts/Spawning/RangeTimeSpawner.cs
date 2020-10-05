@@ -20,10 +20,11 @@ public class RangeTimeSpawner : Spawner
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastSpawn += Time.deltaTime;
 
         if(CheckCanSpawn())
         {
+            timeSinceLastSpawn += Time.deltaTime;
+
             Spawn();
             timeSinceLastSpawn = 0;
         }

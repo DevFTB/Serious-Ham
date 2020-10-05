@@ -15,6 +15,7 @@ public class ShooterEnemy : Enemy
     private Transform Target;
     public float SpreadFactor;
     public float ShootRange;
+    public AudioClip ShootClip;
 
 
 
@@ -36,7 +37,9 @@ public class ShooterEnemy : Enemy
     {
         if (GetInRange())
         {
-            transform.LookAt(Player.transform);
+            Quaternion direction = Quaternion.LookRotation(Player.transform.position - Gun.transform.position);
+            Gun.transform.rotation = Quaternion.Slerp(Gun.transform.rotation, direction, Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, direction, Time.deltaTime);
 
         }
 
@@ -59,8 +62,10 @@ public class ShooterEnemy : Enemy
         float RandY = Random.Range(-SpreadFactor, SpreadFactor);
         float RandZ = Random.Range(-SpreadFactor, SpreadFactor);
         Vector3 Rand = new Vector3(RandX, RandY, RandZ);
-        GameObject ShotBullet = Instantiate(bullet, transform.position, transform.rotation);
-        ShotBullet.GetComponent<Bullet>().Shoot((transform.forward + Rand) * BulletSpeed, BulletDamage); 
+        Vector3 Direction = Target.transform.position + new Vector3(0, 1, 0) - Gun.transform.position;
+        GameObject ShotBullet = Instantiate(bullet, Gun.transform.position, Gun.transform.rotation);
+        AudioSource.PlayClipAtPoint(ShootClip, Gun.transform.position);
+        ShotBullet.GetComponent<Bullet>().Shoot((Direction + Rand) * BulletSpeed, BulletDamage); 
     }
 }
  

@@ -27,7 +27,7 @@ public class TankShoot : Ability
 
     public override bool GetAvailable()
     {
-        return (base.GetAvailable() && TankEnemy.TankFollow.OutsideOfMinimumSeperation() && Vector3.Dot(TankEnemy.Target.transform.position - transform.position, transform.forward) > 0.9);
+        return (base.GetAvailable() && TankEnemy.GetInRange() && TankEnemy.TankFollow.OutsideOfMinimumSeperation() && Vector3.Dot(TankEnemy.Target.transform.position - transform.position, transform.forward) > 0.97);
 
     }
 }

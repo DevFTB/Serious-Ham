@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &7908665932262193607
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502874132598773386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.78275406
+  m_Height: 4.2007303
+  m_Direction: 1
+  m_Center: {x: 0.028275132, y: 3.0678868, z: 0}
 --- !u!114 &143509441530467618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,20 +54,6 @@ MonoBehaviour:
   SquishClip: {fileID: 8300000, guid: 5c6bff5e6476d1340891b8ec617f1397, type: 3}
   Waypoints: []
   WaypointDistance: 5
---- !u!136 &7908665932262193607
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3502874132598773386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.78275406
-  m_Height: 4.2007303
-  m_Direction: 1
-  m_Center: {x: 0.028275132, y: 3.0678868, z: 0}
 --- !u!1 &7661178235147013123
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_BaseOffset
-      value: -1
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: m_Speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905295, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_LocalPosition.x

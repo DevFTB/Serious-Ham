@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 77102b9f6f7d4794ba2bdf76e390c707
   - enabled: 1
-    path: Assets/Scenes/Instructions.unity
-    guid: 0894a08f2447c194c826930df65e4ce7
-  - enabled: 1
-    path: Assets/Scenes/RealWorld.unity
-    guid: 981ad7ea516eb7a4e9f3dd3ce124387b
-  - enabled: 1
-    path: Assets/Scenes/Difficulty.unity
-    guid: 97fcba4e58967c04baa31e147fe3c0f1
+    path: Assets/CityWorld/SeriousHam - City World.unity
+    guid: 828e466474d8d2c4da8d13a4d2ba1379
   m_configObjects: {}
