@@ -14,9 +14,11 @@ public class Shell : MonoBehaviour
     private float Radius;
     private Exploder exploder;
     public AudioClip ExplosionSound;
+    public AudioSource AudioSource;
     public List<GameObject> DamageTargets;
     private float ShellGravity;
     private bool IsExploded;
+    public Explosion Explosion;
 
     void Start()
     {
@@ -51,15 +53,14 @@ public class Shell : MonoBehaviour
         Debug.Log(other.name);
         exploder.Explode();
         IsExploded = true;
-        ParticleSystem particles = GetComponent<ParticleSystem>();
-        Destroy(particles.main.duration);
+        Destroy(Explosion.Duration);
     }
 
     public void Shoot(Vector3 VelocityVector, int ShellDamage, float ShellRadius, float Gravity)
     {
         Velocity = VelocityVector;
         Lifetime = MaxTime;
-        exploder = new Exploder(ShellDamage, ShellRadius, gameObject, DamageTargets, ExplosionSound);
+        exploder = new Exploder(ShellDamage, ShellRadius, transform, DamageTargets, ExplosionSound, AudioSource, Explosion);
         ShellGravity = Gravity;
         Timing = true;
     }

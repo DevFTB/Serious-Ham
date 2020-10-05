@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,13 +23,15 @@ public class FuseExploder : MonoBehaviour
 
     private Exploder exploder;
     public UnityEvent OnExplode;
-
+    public AudioSource AudioSource;
+    public ParticleSystem ParticleSystem;
+    public Explosion Explosion;
 
     public virtual void Start()
     {
         FuseTimer = new Timer(FuseDuration);
 
-        exploder = new Exploder(Damage, Radius, gameObject, DamageTargets, ExplosionSound);
+        exploder = new Exploder(Damage, Radius, transform, DamageTargets, ExplosionSound, AudioSource, Explosion);
     }
     public void TimerCheck()
     {

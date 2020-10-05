@@ -14,7 +14,6 @@ public class TriggerFuseExploder : FuseExploder
     {
         base.Start();
         Trigger = GetComponent<ProximityTrigger>();
-
     }
 
     public void Update()

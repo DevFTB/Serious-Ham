@@ -161,7 +161,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3621807344412905282, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_Name
-      value: GattlingrEnemy
+      value: GattlingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905283, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: DeathEvent.m_PersistentCalls.m_Calls.Array.size
