@@ -43,6 +43,6 @@ public class CivilianEnemy : Enemy
         List<GameObject> TempList = Waypoints.Where(waypoint => waypoint != CurrentTarget).ToList();
         int RandomIndex = Random.Range(0, TempList.Count() - 1);
         CurrentTarget = TempList[RandomIndex].transform;
-        MoveTo.Target = CurrentTarget.transform;
+        MoveTo.TargetPosition = CurrentTarget.transform.position;
     }
 }

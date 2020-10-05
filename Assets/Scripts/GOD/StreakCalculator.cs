@@ -9,6 +9,7 @@ public class StreakTier
     public string Name;
     public int StreakRequirement;
     public AudioClip Sound;
+    public int PointMultiplier;
     private class SortByPointsRequired : IComparer<StreakTier>
     {
         public int Compare(StreakTier sl1, StreakTier sl2)
@@ -135,5 +136,11 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
     public bool HasStreak()
     {
         return CurrentStreakTierNumber > 0;
+    }
+
+    public int GetPointMultiplier()
+    {
+        if (HasStreak()) return CurrentStreakTier.PointMultiplier;
+        else return 1;
     }
 }

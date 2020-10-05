@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour
 {
-    public Transform Target;
+    public Vector3 TargetPosition;
     private NavMeshAgent Agent;
     public int WalkableIndex;
     public int WalkableCost;
@@ -22,6 +22,6 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Agent.destination = Target.position;
+        Agent.destination = TargetPosition;
     }
 }
