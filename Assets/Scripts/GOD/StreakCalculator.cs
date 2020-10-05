@@ -10,6 +10,7 @@ public class StreakTier
     public int StreakRequirement;
     public AudioClip Sound;
     public int PointMultiplier;
+    public Sprite Image;
     private class SortByPointsRequired : IComparer<StreakTier>
     {
         public int Compare(StreakTier sl1, StreakTier sl2)
@@ -142,5 +143,10 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
     {
         if (HasStreak()) return CurrentStreakTier.PointMultiplier;
         else return 1;
+    }
+
+    public float GetLossPercentage()
+    {
+        return 1 - LossTimer.GetPercentageCompletion();
     }
 }
