@@ -46,7 +46,7 @@ MonoBehaviour:
   ParentSpawnees: 0
   Spawnee: {fileID: 3621807344412905282, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
   Quantity: 4
-  Separation: 3
+  Separation: 12
   SpawningPeriod: 5
   Player: {fileID: 0}
-  MinPlayerDistance: 25
+  MinPlayerDistance: 60

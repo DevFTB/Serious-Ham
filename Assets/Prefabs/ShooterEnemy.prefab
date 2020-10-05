@@ -1,77 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!136 &3027303663576364519
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3503924715472864073}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.7545179
-  m_Height: 4.2436237
-  m_Direction: 1
-  m_Center: {x: 0, y: 3, z: 0.021086931}
-
---- !u!114 &7555049785630514955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3503924715472864073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cbf3e075a8f6140b7d2270236d5906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 2140421707714660844}
-  Health: {fileID: 3503924715472864072}
-  Player: {fileID: 0}
-  EnemyDeathEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  IsDying: 0
-  ScreamClip: {fileID: 8300000, guid: a23bfd7a3d54166488a6cf873f7b09d8, type: 3}
-  SquishClip: {fileID: 8300000, guid: 5c6bff5e6476d1340891b8ec617f1397, type: 3}
-  bullet: {fileID: 2111613420183864632, guid: 04ac29a76e4bbba4b8f9daa3e5eb0f2a, type: 3}
-  BulletSpeed: 150
-  BulletDamage: 150
-  Gun: {fileID: 0}
-  SpreadFactor: 0.1
-  ShootRange: 100
---- !u!114 &7646536109437451952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3503924715472864073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4315d66a5371844a9920a3ed0c3ee2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cooldown: 0
-  CooldownTimer: 0
-  AttacksPerMinute: 30
-  ShooterEnemy: {fileID: 7555049785630514955}
---- !u!114 &8427638946622279969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3503924715472864073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc33078440e55544a6a747a8c7ec3c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  AggroRange: 50
 --- !u!1 &1417293297380773745
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +81,78 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3027303663576364519
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503924715472864073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.7545179
+  m_Height: 4.2436237
+  m_Direction: 1
+  m_Center: {x: 0, y: 3, z: 0.021086931}
+--- !u!114 &7555049785630514955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503924715472864073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cbf3e075a8f6140b7d2270236d5906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 2140421707714660844}
+  Health: {fileID: 3503924715472864072}
+  Player: {fileID: 0}
+  EnemyDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  IsDying: 0
+  ScreamClip: {fileID: 8300000, guid: a23bfd7a3d54166488a6cf873f7b09d8, type: 3}
+  SquishClip: {fileID: 8300000, guid: 5c6bff5e6476d1340891b8ec617f1397, type: 3}
+  bullet: {fileID: 2111613420183864632, guid: 04ac29a76e4bbba4b8f9daa3e5eb0f2a, type: 3}
+  BulletSpeed: 90
+  BulletDamage: 150
+  Gun: {fileID: 0}
+  SpreadFactor: 0.1
+  ShootRange: 100
+  ShootClip: {fileID: 0}
+--- !u!114 &7646536109437451952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503924715472864073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4315d66a5371844a9920a3ed0c3ee2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 0
+  CooldownTimer: 0
+  AttacksPerMinute: 30
+  ShooterEnemy: {fileID: 7555049785630514955}
+--- !u!114 &8427638946622279969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503924715472864073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc33078440e55544a6a747a8c7ec3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  AggroRange: 50
 --- !u!1001 &208096190097067019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,6 +163,10 @@ PrefabInstance:
     - target: {fileID: 2258274090404480487, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: MinDistance
       value: 1.864727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258274090404480487, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: m_Volume
+      value: 0.534
       objectReference: {fileID: 0}
     - target: {fileID: 2762741008748919749, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: PointValue

@@ -4843,7 +4843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  AggroRange: 50
+  AggroRange: 250
 --- !u!114 &5569920579216042059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,6 +5026,10 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: -0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+      propertyPath: m_Speed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905290, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -5076,7 +5080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4909845289779649071, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: PointValue
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}

@@ -15,6 +15,9 @@ public class Slam : Ability
     public float MinSlamHeight;
     public float VelocityFactor;
     public KeyCode Key;
+    public AudioSource AudioSource;
+    public AudioClip SlamStartClip;
+    public AudioClip SlamImpactClip;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +57,7 @@ public class Slam : Ability
     {
         Movement.Clamp();
         IsSlamming = false;
+        AudioSource.PlayOneShot(SlamImpactClip);
         base.UseAbility();
         Collider[] InRadius = Physics.OverlapSphere(transform.position, SlamRadius);
         foreach (var CollisionObject in InRadius)
@@ -73,5 +77,6 @@ public class Slam : Ability
     private void StartSlam()
     {
         IsSlamming = true;
+        AudioSource.PlayOneShot(SlamStartClip);
     }
 }

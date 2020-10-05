@@ -12,6 +12,8 @@ public class Dash : Ability
     private bool IsDashing;
     public float DashSpeed;
     public KeyCode Key;
+    public AudioSource AudioSource;
+    public AudioClip DashClip;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,7 @@ public class Dash : Ability
 
     private void StartDash()
     {
+        AudioSource.PlayOneShot(DashClip);
         IsDashing = true;
         DashTimer = 0.0f;
     }

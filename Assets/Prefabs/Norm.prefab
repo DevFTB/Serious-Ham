@@ -103,7 +103,11 @@ PrefabInstance:
     - target: {fileID: 8233460443234678524, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
       propertyPath: Spawnee
       value: 
-      objectReference: {fileID: 3503924715472864073, guid: 8b033b87110e2d2429fcc42df9549245, type: 3}
+      objectReference: {fileID: 152835561041585525, guid: 8288f87a05fff3042a09b516679b36aa, type: 3}
+    - target: {fileID: 8233460443234678524, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
+      propertyPath: MinPlayerDistance
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
 --- !u!4 &9152117110176609036 stripped
@@ -181,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 8233460443234678524, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
       propertyPath: Spawnee
       value: 
-      objectReference: {fileID: 3503924715472864073, guid: 574ef564421d76947b9a2fe872e8ceab, type: 3}
+      objectReference: {fileID: 7710739803164824148, guid: b662dc6cef3f78547a69849d867362cd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
 --- !u!4 &7556319733730325531 stripped
