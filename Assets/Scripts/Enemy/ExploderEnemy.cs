@@ -10,7 +10,7 @@ public class ExploderEnemy : Enemy
 
     private Transform Target;
 
-    private Follow Follow;
+    private TankFollow Follow;
     
     private TriggerFuseExploder TFE;
     private ProximityTrigger Trigger;
@@ -22,7 +22,7 @@ public class ExploderEnemy : Enemy
     {
         base.Start();
 
-        Follow = GetComponent<Follow>();
+        Follow = GetComponent<TankFollow>();
 
         TFE = GetComponent<TriggerFuseExploder>();
         Trigger = GetComponent<ProximityTrigger>();

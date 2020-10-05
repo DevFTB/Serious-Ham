@@ -15,20 +15,6 @@ MonoBehaviour:
   Cooldown: 0
   AttacksPerMinute: 30
   TankEnemy: {fileID: 6109672031598888331}
---- !u!114 &5858294252538166452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3503924715472864073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dc33078440e55544a6a747a8c7ec3c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  AggroRange: 100
 --- !u!114 &6109672031598888331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  Agent: {fileID: 0}
-  MinimumSeparation: 0
+  Agent: {fileID: 3503924715472864079}
+  MinimumSeparation: 20
 --- !u!1001 &208096190097067019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_StoppingDistance
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
       propertyPath: m_Speed
@@ -178,6 +164,11 @@ PrefabInstance:
 --- !u!1 &3503924715472864073 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3621807344412905282, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
+  m_PrefabInstance: {fileID: 208096190097067019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &3503924715472864079 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3621807344412905284, guid: f2ce11a61c4d70143aa32b99e081a1e2, type: 3}
   m_PrefabInstance: {fileID: 208096190097067019}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3503924715472864072 stripped

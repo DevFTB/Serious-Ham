@@ -11,7 +11,7 @@ public class ShooterEnemy : Enemy
     public float BulletSpeed;
     public int BulletDamage;
     public GameObject Gun;
-    private Follow Follow;
+    private TankFollow Follow;
     private Transform Target;
     public float SpreadFactor;
     public float ShootRange;
@@ -23,7 +23,7 @@ public class ShooterEnemy : Enemy
     {
         base.Start();
 
-        Follow = GetComponent<Follow>();
+        Follow = GetComponent<TankFollow>();
         SetTarget(Player.transform);
 
     }

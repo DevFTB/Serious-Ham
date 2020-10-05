@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
         Anim.SetBool("MovingForward", MovingForward);
 
-        Debug.Log(Movement.GetVelocity().z + ", " + IsIdle + ", " + Movement.IsGrounded());
+
         Anim.SetBool("IsIdle", IsIdle);
         
         if(!JumpedYet && Movement.Jumped)
