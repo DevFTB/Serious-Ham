@@ -160,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 8233460443234678524, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
       propertyPath: Spawnee
       value: 
-      objectReference: {fileID: 3503924715472864073, guid: 574ef564421d76947b9a2fe872e8ceab, type: 3}
+      objectReference: {fileID: 9052565104391345608}
     - target: {fileID: 8233460443234678524, guid: 4dd33a092ed18e74eb8495170ae3ba5c, type: 3}
       propertyPath: Quantity
       value: 3
