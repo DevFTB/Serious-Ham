@@ -13621,7 +13621,7 @@ MonoBehaviour:
   sideObjectNames: []
   selectedSO: 0
   rebuildSos: 0
-  sosCleared: 1
+  sosCleared: 0
   isSideObject: 0
   startOffsetActiveMarker: -1
   endOffsetActiveMarker: -1
@@ -19744,7 +19744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateInt: 10
   newSplatMapRestoreCode: 0
-  toolbarInt: 0
+  toolbarInt: 1
   oldToolbarInt: 0
   roadToolbarInt: 0
   markerToolbarInt: 0
@@ -20271,13 +20271,14 @@ MonoBehaviour:
   OODCCDOQDD: -1
   OOCCOCQODO: {fileID: 0}
   OOCCODCCQD: {fileID: 0}
-  OODOQODCCO: -1
+  OODOQODCCO: 4
   selectedRoadSOMarker: -1
   selectedMarkerNode: -1
   selectedMarkerNodes: 
   selectedMarkerSONode: -1
   selectedMarkerSONodes: 
-  selectedObjects: []
+  selectedObjects:
+  - {fileID: 1713965405}
   selectedExitRoad: -1
   newRoadFlag: 0
   roadTypeUpdateFlag: 1
@@ -20369,7 +20370,7 @@ MonoBehaviour:
   rightLaneHandleColour: {r: 1, g: 1, b: 1, a: 0.75}
   laneHandleSelectedColour: {r: 1, g: 1, b: 0, a: 0.5}
   roadUvThreshold: 1750
-  updateQueue: 358003916
+  updateQueue: 997344277
   logChange: 0
   debugMode: 0
   RoadNetworkInitFlag: 1
@@ -65961,6 +65962,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8046905554359945878, guid: 0440574de24b9de4b9ad62f823dac1a0, type: 3}
   m_PrefabInstance: {fileID: 1284799066}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713965405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 561528938, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadScr: {fileID: 0}
+  prefabScr: {fileID: 0}
+  markers: 04000000
+  startEnd: 0
+  prefab: {fileID: 0}
 --- !u!1001 &1716307760
 PrefabInstance:
   m_ObjectHideFlags: 0
