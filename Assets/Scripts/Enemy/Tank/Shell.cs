@@ -55,7 +55,7 @@ public class Shell : MonoBehaviour
         Destroy(Explosion.Duration);
     }
 
-    public void Shoot(Vector3 VelocityVector, int ShellDamage, float ShellRadius, float Gravity)
+    public void Shoot(Vector3 VelocityVector, int ShellDamage, float ShellRadius, float Gravity, List<GameObject> DamageTargets)
     {
         Velocity = VelocityVector;
         Lifetime = MaxTime;

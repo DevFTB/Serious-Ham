@@ -12,6 +12,8 @@ public class TankEnemy : Enemy
     public int ShellDamage;
     public float ShellRadius;
     public float Gravity;
+    public AudioClip ShootSound;
+    public float MaxRandRange;
     private void Start()
     {
         base.Start();
@@ -36,8 +38,12 @@ public class TankEnemy : Enemy
     {
         Vector3 StartOffset = new Vector3(0, 2, 0);
 
+        float XRand = Random.Range(-MaxRandRange, MaxRandRange);
+        float ZRand = Random.Range(-MaxRandRange, MaxRandRange);
+        Vector3 EndOffset = new Vector3(XRand, 0, ZRand);
+
         Vector3 StartPos = transform.position + StartOffset;
-        Vector3 TargetPos = Target.transform.position;
+        Vector3 TargetPos = Target.transform.position + EndOffset;
         Vector3 ToTarget = TargetPos - StartPos;
         float Dist = ToTarget.magnitude;
 
@@ -45,8 +51,12 @@ public class TankEnemy : Enemy
 
         Vector3 Velocity = ToTarget.normalized * HoriSpeed + Vector3.up * VertSpeed;
 
+        List<GameObject> DamageTargets = new List<GameObject> {Target.gameObject}; 
+
+        AudioSource.PlayClipAtPoint(ShootSound, StartPos);
+
         GameObject ShotShell = Instantiate(shell, StartPos, Quaternion.identity);
-        ShotShell.GetComponent<Shell>().Shoot(Velocity, ShellDamage, ShellRadius, Gravity);
+        ShotShell.GetComponent<Shell>().Shoot(Velocity, ShellDamage, ShellRadius, Gravity, DamageTargets);
         // GameObject ShotBullet = Instantiate(bullet, Gun.transform.position, transform.rotation);
         // ShotBullet.GetComponent<Bullet>().Shoot((transform.forward + Rand) * BulletSpeed, BulletDamage); 
     }
