@@ -8,14 +8,12 @@ using UnityEngine.Events;
 [RequireComponent(typeof(ProximityTrigger))]
 public class TriggerFuseExploder : FuseExploder
 {
-
     private ProximityTrigger Trigger;
 
     public override void Start()
     {
         base.Start();
         Trigger = GetComponent<ProximityTrigger>();
-
     }
 
     public void Update()

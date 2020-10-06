@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    public bool IsRollable;
+    public bool IsSlammable;
+
     public int MaxHP;
     public int CurrentHP { private set; get; }
 

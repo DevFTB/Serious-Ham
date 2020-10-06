@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 77102b9f6f7d4794ba2bdf76e390c707
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/CityWorld/SeriousHam - City World.unity
+    guid: 828e466474d8d2c4da8d13a4d2ba1379
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 4871200ef08a9db4092b15a14bca9d45
   m_configObjects: {}

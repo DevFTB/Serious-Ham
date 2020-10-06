@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
     public float Cooldown;
-    private float CooldownTimer;
+    public float CooldownTimer;
     public bool IsCooledDown { get; private set; }
     private bool IsCoolingDown;
     // Start is called before the first frame update

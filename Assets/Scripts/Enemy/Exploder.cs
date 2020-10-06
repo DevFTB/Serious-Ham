@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Exploder
 {
@@ -14,6 +15,7 @@ public class Exploder
     private AudioSource AudioSource;
     private AudioClip ExplosionSound;
 
+    private Explosion Explosion; 
     private ParticleSystem PS;
     public bool IsExploded { get; private set; }
 
@@ -27,6 +29,18 @@ public class Exploder
         AudioSource = audioSource;
         ExplosionSound = explosionSound;
         PS = ps;
+    }
+
+    public Exploder(int damage, float radius, Transform exploderTransform, List<GameObject> damageTargets, AudioClip explosionSound = null, AudioSource audioSource = null, Explosion explosion = null)
+    {
+        Damage = damage;
+        Radius = radius;
+        ExploderTransform = exploderTransform;
+        DamageTargets = damageTargets;
+
+        AudioSource = audioSource;
+        ExplosionSound = explosionSound;
+        Explosion = explosion;
     }
 
     public Exploder(int damage, float radius, GameObject exploderWithEffects, List<GameObject> damageTargets, AudioClip explosionSound)
@@ -43,6 +57,8 @@ public class Exploder
 
     public void Explode()
     {
+        CameraController CameraController = GameObject.FindGameObjectWithTag("CameraController").GetComponent<CameraController>();
+
         ExecuteExplosionEffects();
 
         IsExploded = true;
@@ -52,8 +68,8 @@ public class Exploder
             float dist = Vector3.Distance(Target.transform.position, ExploderTransform.position);
             if (dist <= Radius)
             {
-
                 Target.GetComponent<Health>().TakeDamage(Damage);
+                CameraController.ExplodeShake();
             }
 
         }
@@ -78,6 +94,10 @@ public class Exploder
         if (PS)
         {
             PS.Play();
+        }
+        if (Explosion)
+        {
+            Explosion.Explode();
         }
     }
 }

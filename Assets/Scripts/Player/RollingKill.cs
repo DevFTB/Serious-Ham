@@ -10,7 +10,8 @@ public class RollingKill : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var OtherHealth = other.gameObject.GetComponent<Health>();
-        if(OtherHealth){
+        if (OtherHealth && OtherHealth.IsRollable) 
+        {
             OtherHealth.TakeDamage(RollDamage);
         }
     }

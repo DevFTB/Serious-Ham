@@ -16,6 +16,9 @@ public class ExploderEnemy : Enemy
     private ProximityTrigger Trigger;
 
     private ParticleSystem ParticleSystem;
+    public float ExplodeDuration;
+    private float TimeSinceDeath;
+    public List<MeshRenderer> Meshes;
 
 
     public void Start()
@@ -35,10 +38,18 @@ public class ExploderEnemy : Enemy
 
     public void Update()
     {
-        if (!ParticleSystem.isPlaying)
+        if (IsDying)
         {
-            base.CheckDeath();
+            if (TimeSinceDeath > ExplodeDuration)
+            {
+                base.CheckDeath();
+            }
+            else
+            {
+                TimeSinceDeath += Time.deltaTime;
+            }
         }
+       
 
     }
 
@@ -52,9 +63,16 @@ public class ExploderEnemy : Enemy
     }
 
     public override void BeginDeath() {
+        GetComponent<Collider>().enabled = false;
+        foreach (MeshRenderer mesh in Meshes)
+        {
+            mesh.enabled = false;
+        }
         TFE.enabled = false;
         Follow.enabled = false;
+        TimeSinceDeath = 0.0f;
         base.BeginDeath();
+
     }
 
 }

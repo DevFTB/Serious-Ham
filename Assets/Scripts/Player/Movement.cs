@@ -17,12 +17,16 @@ public class Movement : MonoBehaviour
     public float JumpSpeed;
     public float TurnSpeed;
 
-    public float SlopeAccelFactor;
+    public float RollingVolume;
 
+    public AudioSource RollingAudioSource;
+    public float SlopeAccelFactor;
 
     private CharacterController cc;
     private Vector3 Velocity; 
-    
+
+
+    public bool Jumped { get; private set; }    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,9 +56,24 @@ public class Movement : MonoBehaviour
 
         if (cc.isGrounded)
         {
+            if (Jumped) Jumped = false;
+
+            if (Velocity.z != 0)
+            {
+                RollingAudioSource.volume = RollingVolume * Velocity.z / MaximumSpeed;
+                if (!RollingAudioSource.isPlaying)
+                {
+                    RollingAudioSource.Play();
+                }
+            }
+            else
+            {
+                RollingAudioSource.Stop();
+            }
             //slope acceleration
             // Debug.Log(SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope()));
             Velocity.z -= SlopeAccelFactor * Gravity * Mathf.Sin(Mathf.Deg2Rad * FindSurfaceSlope());
+
             if (Input.GetKey(KeyCode.Space))
             {
                 Velocity.y = 0;
@@ -139,6 +158,7 @@ public class Movement : MonoBehaviour
 
     public void Jump()
     {
+        Jumped = true;
         Velocity.y += JumpSpeed;
     }
 

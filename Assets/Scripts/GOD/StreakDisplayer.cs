@@ -8,12 +8,12 @@ public class StreakDisplayer : MonoBehaviour
     public StreakCalculator Calculator;
 
     public Text StreakNumberText;
-    public Text StreakNameText;
+    public Image StreakNameImage;
 
+    public Slider Slider;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -21,15 +21,16 @@ public class StreakDisplayer : MonoBehaviour
     {
         if(Calculator.HasStreak())
         {
+            GetComponent<CanvasGroup>().alpha = 1.0f;
             StreakNumberText.text = "x " + Calculator.Streak.ToString();
-            StreakNameText.text = Calculator.CurrentStreakTier.Name;
+            StreakNameImage.sprite = Calculator.CurrentStreakTier.Image;
+            Slider.value = Calculator.GetLossPercentage();
         }
         else
         {
-            StreakNumberText.text = "";
-            StreakNameText.text = "";
+            GetComponent<CanvasGroup>().alpha = 0.0f;
         }
 
-        
+
     }
 }

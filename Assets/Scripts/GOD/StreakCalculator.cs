@@ -8,6 +8,11 @@ public class StreakTier
 {
     public string Name;
     public int StreakRequirement;
+    public AudioClip Sound;
+    public int PointMultiplier;
+    public Sprite Image;
+    public AudioClip Music;
+    public AudioClip MusicLoop;
 
     private class SortByPointsRequired : IComparer<StreakTier>
     {
@@ -32,6 +37,8 @@ public class StreakTier
 
 public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
 {
+    public AudioClip DefaultMusic;
+    public AudioClip DefaultMusicLoop;
     public float TimeTillLoss;
     public List<StreakTier> UnsortedStreakTiers;
     private List<StreakTier> StreakTiers;
@@ -39,6 +46,7 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
     public StreakTier CurrentStreakTier { get => StreakTiers[CurrentStreakTierNumber - 1]; }
 
     private Timer LossTimer;
+    public AudioSource AudioSource;
     public float Streak { get; private set; }
 
 
@@ -72,9 +80,9 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
             LossTimer.Reset();
         }
 
-        if (Streak > GetRequiredStreakForNextTier(CurrentStreakTierNumber))
+        if (Streak >= GetRequiredStreakForNextTier(CurrentStreakTierNumber))
         {
-            CurrentStreakTierNumber++;
+            AudioSource.PlayOneShot(GetStreakTierSound(++CurrentStreakTierNumber));
         }
         else
         {
@@ -83,8 +91,6 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
                 CurrentStreakTierNumber--;
             }
         }
-
-        if (CurrentStreakTierNumber > 0) Debug.Log(Streak + ", Name: " + StreakTiers[CurrentStreakTierNumber - 1].Name);
 
     }
 
@@ -100,6 +106,11 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
         }
     }
 
+    private AudioClip GetStreakTierSound(int tier)
+    {
+        if (tier > 0) return StreakTiers[tier - 1].Sound;
+        else return null;
+    }
     private int GetMinimumStreakForTier(int tier)
     {
         if (tier > 0) return StreakTiers[tier - 1].StreakRequirement;
@@ -131,5 +142,28 @@ public class StreakCalculator : MonoBehaviour, ISerializationCallbackReceiver
     public bool HasStreak()
     {
         return CurrentStreakTierNumber > 0;
+    }
+
+    public int GetPointMultiplier()
+    {
+        if (HasStreak()) return CurrentStreakTier.PointMultiplier;
+        else return 1;
+    }
+
+    public float GetLossPercentage()
+    {
+        return 1 - LossTimer.GetPercentageCompletion();
+    }
+
+    public AudioClip GetCurrentMusic()
+    {
+        if (HasStreak()) return CurrentStreakTier.Music;
+        else return DefaultMusic;
+    }
+
+    public AudioClip GetCurrentMusicLoop()
+    {
+        if (HasStreak()) return CurrentStreakTier.MusicLoop;
+        else return DefaultMusicLoop;
     }
 }

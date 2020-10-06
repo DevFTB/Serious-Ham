@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6987184109288087159}
   - component: {fileID: 6987184109288087156}
+  - component: {fileID: 289162680}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -45,9 +46,130 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeTillLoss: 20
   UnsortedStreakTiers:
-  - Name: Bad
-    StreakRequirement: 3
-  - Name: Good
+  - Name: Killing Spree
     StreakRequirement: 10
-  - Name: Amazing
-    StreakRequirement: 15
+    Sound: {fileID: 8300000, guid: 3d8a72176d1c7b64788d5268be431e5e, type: 3}
+  - Name: Dominating
+    StreakRequirement: 20
+    Sound: {fileID: 8300000, guid: e38314009c568f84a921b58720e6b5d9, type: 3}
+  - Name: Mega Kill
+    StreakRequirement: 30
+    Sound: {fileID: 8300000, guid: 84c8640fba42d2d43a57acadfe7ec824, type: 3}
+  - Name: Unstoppable
+    StreakRequirement: 40
+    Sound: {fileID: 8300000, guid: ab83fe3e5c640814d890d829b3e9c040, type: 3}
+  - Name: Wicked Sick
+    StreakRequirement: 50
+    Sound: {fileID: 8300000, guid: 0daa09cec5ab5c2409e57f4ba5d0756c, type: 3}
+  - Name: Monster Kill!!
+    StreakRequirement: 60
+    Sound: {fileID: 8300000, guid: 39ecbfb4abf836c439156dd15f67d0c2, type: 3}
+  - Name: GODLIKE!
+    StreakRequirement: 70
+    Sound: {fileID: 8300000, guid: 7a4439e3c402bf746a9b78793c9cc0ad, type: 3}
+  - Name: BEYOND GODLIKE!
+    StreakRequirement: 85
+    Sound: {fileID: 8300000, guid: bdcd43dc56c3bfd4b866c8a2ad4c76fc, type: 3}
+  - Name: RAMPAGE
+    StreakRequirement: 100
+    Sound: {fileID: 8300000, guid: 46fa76e7465dde742aaef64dc0862169, type: 3}
+  - Name: SERIOUS HAMMMMMM
+    StreakRequirement: 200
+    Sound: {fileID: 8300000, guid: 9946987e8f54c88418094e44ef9c70e0, type: 3}
+  AudioSource: {fileID: 289162680}
+--- !u!82 &289162680
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987184109288087157}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.444
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

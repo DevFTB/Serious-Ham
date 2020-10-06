@@ -7,10 +7,10 @@ public class DoubleJump : Ability
     public Movement Movement;
     public KeyCode Key = KeyCode.Space;
     private bool DidDoubleJump;
+    public AudioSource AudioSource;
+    public AudioClip DoubleJumpClip;
     public override bool GetAvailable()
     {
-        Debug.Log(Movement.IsGrounded());
-
         return (!Movement.IsGrounded() && base.GetAvailable() && !DidDoubleJump);
     }
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class DoubleJump : Ability
         base.UseAbility();
         DidDoubleJump = true;
         Movement.Jump();
-
+        AudioSource.PlayOneShot(DoubleJumpClip);
         UseAbility();
     }
 }

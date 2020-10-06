@@ -14,16 +14,13 @@ public class Enemy : MonoBehaviour
     public AudioClip ScreamClip;
     public AudioClip SquishClip;
 
+    
     // Start is called before the first frame update
-    public void Start()
+    public virtual void Start()
     {
         Health = GetComponent<Health>();
         AudioSource = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        EnemyDeathEvent.AddListener(Player.GetComponent<PlayerController>().Kill);
-        AudioSource.clip = ScreamClip;
-
-
     }
 
     // Update is called once per frame
@@ -50,12 +47,11 @@ public class Enemy : MonoBehaviour
         Scream();
     }
 
-    public void Die()
+    public virtual void Die()
     {
         EnemyDeathEvent.Invoke();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
-
     public void Squish()
     {
         AudioSource.PlayClipAtPoint(SquishClip, transform.position);
